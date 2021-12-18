@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Interactable
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Props
+  - Interactables
+  - Trush
+  - Walls
+  - Hero
+  - Enemies
+  - Collectables
+  - Checkers
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 84522749
+    locked: 0
+  - name: Level
+    uniqueID: 3498444839
+    locked: 0
+  - name: Props
+    uniqueID: 155564291
+    locked: 0
+  - name: Creatures
+    uniqueID: 2905366139
+    locked: 0
