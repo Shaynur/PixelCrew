@@ -32,7 +32,6 @@ public class CircularMovement : MonoBehaviour
         }
     }
 
-
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {

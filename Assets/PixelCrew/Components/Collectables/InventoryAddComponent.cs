@@ -34,5 +34,4 @@ namespace Assets.PixelCrew.Components.Collectables
     [Serializable]
     public class GoEvent : UnityEvent<GameObject>
     { }
-
 }

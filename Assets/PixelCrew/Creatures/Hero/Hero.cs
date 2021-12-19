@@ -224,6 +224,5 @@ namespace Assets.PixelCrew.Creatures.Hero
             return false;
         }
     }
-
 }
 

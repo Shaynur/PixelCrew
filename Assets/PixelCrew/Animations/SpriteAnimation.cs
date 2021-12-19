@@ -7,13 +7,11 @@ namespace Assets.PixelCrew.Animations
     [RequireComponent(typeof(SpriteRenderer))]
     public class SpriteAnimation : MonoBehaviour
     {
-
         [SerializeField] [Range(1, 30)] private int _framerate = 10;
         [SerializeField] private StringEvent _onComplete;
         [SerializeField] private AnimationClip[] _clips;
 
         private SpriteRenderer _renderer;
-
         private float _secPerFrame;
         private float _nextFrameTime;
         private int _currentClip;
@@ -118,6 +116,5 @@ namespace Assets.PixelCrew.Animations
         public class StringEvent : UnityEvent<string>
         {
         }
-
     }
 }
