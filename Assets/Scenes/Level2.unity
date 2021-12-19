@@ -2792,7 +2792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radius: 1.17
-  _speed: 1
+  _speed: 4
 --- !u!4 &942031326
 Transform:
   m_ObjectHideFlags: 0
