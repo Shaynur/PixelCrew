@@ -8,7 +8,7 @@ namespace Assets.PixelCrew.Animations
     public class SpriteAnimation : MonoBehaviour
     {
         [SerializeField] [Range(1, 30)] private int _framerate = 10;
-        [SerializeField] private StringEvent _onComplete;
+//        [SerializeField] private StringEvent _onComplete;
         [SerializeField] private AnimationClip[] _clips;
 
         private SpriteRenderer _renderer;
@@ -86,7 +86,7 @@ namespace Assets.PixelCrew.Animations
                     }
                     else
                     {
-                        _onComplete?.Invoke(clip.Name);       //???
+//                        _onComplete?.Invoke(clip.Name);       //???
                     }
                 }
                 return;
@@ -112,9 +112,9 @@ namespace Assets.PixelCrew.Animations
             public UnityEvent OnComplete => _onComplete;
         }
 
-        [Serializable]
-        public class StringEvent : UnityEvent<string>
-        {
-        }
+        //[Serializable]
+        //public class StringEvent : UnityEvent<string>
+        //{
+        //}
     }
 }
