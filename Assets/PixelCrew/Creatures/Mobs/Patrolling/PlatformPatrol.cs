@@ -14,9 +14,6 @@ namespace Assets.PixelCrew.Creatures.Mobs.Patrolling
             _creature = GetComponent<Creature>();
         }
 
-        private void Start()
-        { }
-
         public override IEnumerator DoPatrol()
         {
             while (enabled)
@@ -28,7 +25,6 @@ namespace Assets.PixelCrew.Creatures.Mobs.Patrolling
                         _creature.SetDirection(Vector2.zero);
                         yield return new WaitForSeconds(0.3f);
                         _creature.transform.localScale = new Vector3(-1f * transform.localScale.x, 1f, 1f);
-                        //_creature.SetDirection( new Vector2( -1f * transform.localScale.x, 0f ) );
                         yield return new WaitForSeconds(0.2f);
                     }
                     else

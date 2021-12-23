@@ -9,18 +9,18 @@ namespace Assets.PixelCrew.Model.Data
     [Serializable]
     public class InventoryData
     {
-        [SerializeField] private int _capacity = 100;
         [SerializeField] private List<InventoryItemData> _inventory = new List<InventoryItemData>();
 
         public delegate void OnInventoryChanged(string id, int value);
         public OnInventoryChanged OnChanged;
-        public int _inventoryCount = 0;
+        private int _inventoryCount = 0;
+        public int InventoryCount => _inventoryCount;
 
         public bool Add(string id, int value)
         {
-            if (_inventoryCount + value > _capacity)
+            if (_inventoryCount + value > DefsFacade.I.Player.InventorySize)
             {
-                value = _capacity - _inventoryCount;
+                value = DefsFacade.I.Player.InventorySize - _inventoryCount;
             }
             if (value <= 0) return false;
 
@@ -77,6 +77,7 @@ namespace Assets.PixelCrew.Model.Data
                 _inventory.Remove(item);
             }
             OnChanged?.Invoke(id, Count(id));
+            Debug.Log("Inventory count = " + _inventoryCount);
         }
 
         private InventoryItemData GetItem(string id)
@@ -100,16 +101,6 @@ namespace Assets.PixelCrew.Model.Data
                 {
                     count += item.Value;
                 }
-            }
-            return count;
-        }
-
-        public int InventoryCount()
-        {
-            int count = 0;
-            foreach (var item in _inventory)
-            {
-                count += item.Value;
             }
             return count;
         }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8923237551460824513}
   - component: {fileID: 8923237551460824524}
   - component: {fileID: 8923237551460824515}
-  - component: {fileID: 8923237551460824514}
   m_Layer: 16
   m_Name: Vision
   m_TagString: Untagged
@@ -75,36 +74,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   _isTouchingLayer: 0
---- !u!114 &8923237551460824514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8923237551460824512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e9401d308173684dacc32aa908ebd86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tag: Player
-  _layer:
-    serializedVersion: 2
-    m_Bits: 8192
-  _action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnHeroInVision
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &8923237551659987891
 GameObject:
   m_ObjectHideFlags: 0

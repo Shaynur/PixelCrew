@@ -1,4 +1,4 @@
-﻿using System;
+﻿//using System;
 using System.Collections;
 using UnityEngine;
 
@@ -16,9 +16,6 @@ namespace Assets.PixelCrew.Creatures.Mobs.Patrolling
         {
             _creature = GetComponent<Creature>();
         }
-
-        private void Start()
-        { }
 
         public override IEnumerator DoPatrol()
         {

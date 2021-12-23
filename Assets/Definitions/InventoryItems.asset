@@ -18,6 +18,6 @@ MonoBehaviour:
   - _id: Sword
     _unstackable: 0
   - _id: Key
-    _unstackable: 0
+    _unstackable: 1
   - _id: HPpotion
     _unstackable: 1

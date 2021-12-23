@@ -99,11 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _framerate: 10
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
   _clips:
-  - _name: 
+  - _name: idle
     _sprites:
     - {fileID: 21300000, guid: f35f972a1d13fd04f80762e78e5897af, type: 3}
     _loop: 0
@@ -172,11 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8924b73116a68e54bb19a0bc4e90b9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _required:
-  - Id: Key
-    Value: 1
-  - Id: Coin
-    Value: 2
+  _required: []
   _removeAfterUse: 1
   _onSuccess:
     m_PersistentCalls:

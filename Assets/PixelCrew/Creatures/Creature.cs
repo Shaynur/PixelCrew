@@ -1,4 +1,5 @@
-﻿using Assets.PixelCrew.Components.ColliderBased;
+﻿using Assets.PixelCrew.Components.Audio;
+using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Components.GoBase;
 using UnityEngine;
 
@@ -7,7 +8,6 @@ namespace Assets.PixelCrew.Creatures
     public class Creature : MonoBehaviour
     {
         [Header("Params:")]
-        //[SerializeField] private bool _invertScale; // ??
         [SerializeField] private float _speed;
         [SerializeField] protected float _jumpSpeed;
         [SerializeField] private float _damageVelocity;
@@ -21,6 +21,7 @@ namespace Assets.PixelCrew.Creatures
         protected Rigidbody2D Rigidbody;
         protected Vector2 Direction;
         protected Animator CreatureAnimator;
+        protected PlaySoundsComponent Sounds;
         public bool _isGrounded;
         private bool _isJumping;
         private const float _decay = 0.5f;
@@ -35,6 +36,7 @@ namespace Assets.PixelCrew.Creatures
         {
             Rigidbody = GetComponent<Rigidbody2D>();
             CreatureAnimator = GetComponent<Animator>();
+            Sounds = GetComponentInChildren<PlaySoundsComponent>();
         }
 
         protected virtual void Update()
@@ -103,10 +105,17 @@ namespace Assets.PixelCrew.Creatures
             if (_isGrounded)
             {
                 yVelocity = _jumpSpeed;
-                _particles.Spawn("Jump");
+                DoJumpVfx();
             }
             return yVelocity;
         }
+
+        protected void DoJumpVfx()
+        {
+            _particles.Spawn("Jump");
+            Sounds.Play("Jump");
+        }
+
         public virtual void TakeDamage()
         {
             _isJumping = false;
@@ -116,6 +125,7 @@ namespace Assets.PixelCrew.Creatures
         public virtual void Attack()
         {
             CreatureAnimator.SetTrigger(AttackKey);
+            Sounds.Play("Melee");
         }
 
         public void OnDoAttack()

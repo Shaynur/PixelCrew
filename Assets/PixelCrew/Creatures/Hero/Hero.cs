@@ -1,15 +1,15 @@
 ﻿using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Components.Health;
 using Assets.PixelCrew.Model;
 using Assets.PixelCrew.Utils;
+using Assets.PixelCrew.Model.Data;
 
 namespace Assets.PixelCrew.Creatures.Hero
 {
-    public class Hero : Creature
+    public class Hero : Creature, ICanAddInInventory
     {
         [SerializeField] private CheckCircleOverlap _interactionCheck;
         [SerializeField] private LayerCheck _wallCheck;
@@ -21,7 +21,6 @@ namespace Assets.PixelCrew.Creatures.Hero
 
 
         private bool _allowDoubleJump;
-        //private bool _firstJumpPressing;
         private bool _isOnWall;
         private GameSession _session;
         private float _defaultGravityScale;
@@ -123,7 +122,7 @@ namespace Assets.PixelCrew.Creatures.Hero
         {
             if (!_isGrounded && _allowDoubleJump)
             {
-                _particles.Spawn("Jump");
+                DoJumpVfx();
                 _allowDoubleJump = false;
                 return _jumpSpeed;
             }
@@ -216,7 +215,8 @@ namespace Assets.PixelCrew.Creatures.Hero
         {
             if (SwordCount > 1)
             {
-                _session.Data.Inventory.Remove("Swords", 1);
+                Sounds.Play("Range");
+                _session.Data.Inventory.Remove("Sword", 1);
                 CreatureAnimator.SetTrigger(ThrowKey);
                 _throwCooldown.Reset();
                 return true;
@@ -225,4 +225,3 @@ namespace Assets.PixelCrew.Creatures.Hero
         }
     }
 }
-
