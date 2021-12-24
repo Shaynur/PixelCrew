@@ -13,25 +13,17 @@ namespace Assets.PixelCrew.Components.Health
         [SerializeField] private UnityEvent _onDie;
         [SerializeField] private HealthChangeEvent _onChange;
 
-        private void Start()
+        public void SetHealth(int newHealth)
         {
-            SetHealth(DefsFacade.I.Player.MaxHealth);
-        }
-
-        public void SetHealth(int hp)
-        {
-            _health = hp;
-            if (_health > DefsFacade.I.Player.MaxHealth)
-            {
-                _health = DefsFacade.I.Player.MaxHealth;
-            }
+            if (newHealth == _health) return;
+            _health = newHealth;
+            _onChange?.Invoke(_health);
         }
 
         public void ModifyHealth(int healthDelta)
         {
-            if (_health <= 0) return;
-
-            SetHealth(_health + healthDelta);
+            if (healthDelta == 0) return;
+            _health += healthDelta;
             _onChange?.Invoke(_health);
 
             if (healthDelta < 0)

@@ -3,6 +3,7 @@ using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Components.Health;
 using Assets.PixelCrew.Model;
 using Assets.PixelCrew.Model.Data;
+using Assets.PixelCrew.Model.Definitions;
 using Assets.PixelCrew.Utils;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace Assets.PixelCrew.Creatures.Hero
         private bool _allowDoubleJump;
         private bool _isOnWall;
         private GameSession _session;
+        private HealthComponent _health;
         private float _defaultGravityScale;
 
         private int CoinsCount => _session.Data.Inventory.Count("Coins");
@@ -39,15 +41,22 @@ namespace Assets.PixelCrew.Creatures.Hero
 
         private void Start()
         {
-            StartCoroutine(FadeIn());
             _session = FindObjectOfType<GameSession>();
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
-            var health = GetComponent<HealthComponent>();
-            if (health != null)
-            {
-                health.SetHealth(_session.Data.Hp.Value);
-            }
+            _health = GetComponent<HealthComponent>();
+            _health.SetHealth(_session.Data.Hp.Value);
+
             UpdateHeroWeapon();
+            StartCoroutine(FadeIn());
+        }
+
+        public void OnHealthChanged(int newHealth)
+        {
+            _session.Data.Hp.Value = Mathf.Min(newHealth, DefsFacade.I.Player.MaxHealth);
+            if(newHealth > DefsFacade.I.Player.MaxHealth)
+            {
+                _health.SetHealth(DefsFacade.I.Player.MaxHealth);
+            }
         }
 
         public void OpenMainMenu()
@@ -88,10 +97,6 @@ namespace Assets.PixelCrew.Creatures.Hero
             }
         }
 
-        public void OnHealthChanged(int currentHealth)
-        {
-            _session.Data.Hp.Value = currentHealth;
-        }
 
         protected override void Update()
         {
