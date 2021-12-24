@@ -1,7 +1,5 @@
-﻿using System;
-using Assets.PixelCrew.Utils;
+﻿using Assets.PixelCrew.Utils;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Assets.PixelCrew.Components.ColliderBased
 {

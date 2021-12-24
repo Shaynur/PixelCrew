@@ -9,7 +9,7 @@ namespace Assets.PixelCrew.Components
     {
         [SerializeField] private TimerData[] _timers;
 
-        public void SetTimer( int index )
+        public void SetTimer(int index)
         {
             var timer = _timers[index];
             StartCoroutine(StartTimer(timer));

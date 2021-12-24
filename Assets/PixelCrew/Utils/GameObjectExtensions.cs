@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.PixelCrew.Utils
 {
@@ -15,9 +12,9 @@ namespace Assets.PixelCrew.Utils
         public static TInterfaceType GetInterface<TInterfaceType>(this GameObject go)
         {
             var components = go.GetComponents<Component>();
-            foreach(var component in components)
+            foreach (var component in components)
             {
-                if(component is TInterfaceType type)
+                if (component is TInterfaceType type)
                 {
                     return type;
                 }

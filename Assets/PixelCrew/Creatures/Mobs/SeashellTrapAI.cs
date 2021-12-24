@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Assets.PixelCrew.Components.ColliderBased;
+﻿using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Components.GoBase;
 using Assets.PixelCrew.Utils;
 using UnityEngine;

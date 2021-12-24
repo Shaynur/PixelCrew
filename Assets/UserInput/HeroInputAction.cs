@@ -19,7 +19,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
             ""id"": ""27a3cfa3-459d-44e0-a45c-4a2735e78a6e"",
             ""actions"": [
                 {
-                    ""name"": ""SaySomething"",
+                    ""name"": ""MainMenu"",
                     ""type"": ""Button"",
                     ""id"": ""dfb5aaa2-123f-45ad-8039-f05f23333573"",
                     ""expectedControlType"": ""Button"",
@@ -68,17 +68,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""26ed41f7-86c0-4717-997e-9189891ee339"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SaySomething"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""2D Vector"",
                     ""id"": ""692a8487-178b-42c1-afad-1aa168e81fef"",
@@ -177,6 +166,17 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""UseHPpotion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""491788bb-0c58-4a82-80ff-e16621250231"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MainMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,7 +185,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
 }");
         // Hero
         m_Hero = asset.FindActionMap("Hero", throwIfNotFound: true);
-        m_Hero_SaySomething = m_Hero.FindAction("SaySomething", throwIfNotFound: true);
+        m_Hero_MainMenu = m_Hero.FindAction("MainMenu", throwIfNotFound: true);
         m_Hero_Movement = m_Hero.FindAction("Movement", throwIfNotFound: true);
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
@@ -240,7 +240,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     // Hero
     private readonly InputActionMap m_Hero;
     private IHeroActions m_HeroActionsCallbackInterface;
-    private readonly InputAction m_Hero_SaySomething;
+    private readonly InputAction m_Hero_MainMenu;
     private readonly InputAction m_Hero_Movement;
     private readonly InputAction m_Hero_Interact;
     private readonly InputAction m_Hero_Attack;
@@ -250,7 +250,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     {
         private @HeroInputAction m_Wrapper;
         public HeroActions(@HeroInputAction wrapper) { m_Wrapper = wrapper; }
-        public InputAction @SaySomething => m_Wrapper.m_Hero_SaySomething;
+        public InputAction @MainMenu => m_Wrapper.m_Hero_MainMenu;
         public InputAction @Movement => m_Wrapper.m_Hero_Movement;
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
@@ -265,9 +265,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_HeroActionsCallbackInterface != null)
             {
-                @SaySomething.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnSaySomething;
-                @SaySomething.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnSaySomething;
-                @SaySomething.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnSaySomething;
+                @MainMenu.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnMainMenu;
+                @MainMenu.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnMainMenu;
+                @MainMenu.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnMainMenu;
                 @Movement.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnMovement;
@@ -287,9 +287,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @SaySomething.started += instance.OnSaySomething;
-                @SaySomething.performed += instance.OnSaySomething;
-                @SaySomething.canceled += instance.OnSaySomething;
+                @MainMenu.started += instance.OnMainMenu;
+                @MainMenu.performed += instance.OnMainMenu;
+                @MainMenu.canceled += instance.OnMainMenu;
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
@@ -311,7 +311,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     public HeroActions @Hero => new HeroActions(this);
     public interface IHeroActions
     {
-        void OnSaySomething(InputAction.CallbackContext context);
+        void OnMainMenu(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.PixelCrew.Components.Movement
 {
@@ -17,7 +16,7 @@ namespace Assets.PixelCrew.Components.Movement
         {
             _rigitbody = GetComponent<Rigidbody2D>();
             _originalY = _rigitbody.position.y;
-            if(_randomize)
+            if (_randomize)
             {
                 _seed = Random.value * Mathf.PI * 2;
             }

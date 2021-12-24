@@ -1,11 +1,11 @@
-﻿using UnityEditor.Animations;
-using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Components.Health;
 using Assets.PixelCrew.Model;
-using Assets.PixelCrew.Utils;
 using Assets.PixelCrew.Model.Data;
+using Assets.PixelCrew.Utils;
+using UnityEditor.Animations;
+using UnityEngine;
 
 namespace Assets.PixelCrew.Creatures.Hero
 {
@@ -45,9 +45,17 @@ namespace Assets.PixelCrew.Creatures.Hero
             var health = GetComponent<HealthComponent>();
             if (health != null)
             {
-                health.SetHealth(_session.Data.Hp);
+                health.SetHealth(_session.Data.Hp.Value);
             }
             UpdateHeroWeapon();
+        }
+
+        public void OpenMainMenu()
+        {
+            Debug.Log("Try open Main menu");
+            var window = Resources.Load<GameObject>("UI/SettingsWindow");
+            //var transform = FindObjectOfType<FollowCamera>();
+            Instantiate(window, transform);
         }
 
         private void OnDestroy()
@@ -82,7 +90,7 @@ namespace Assets.PixelCrew.Creatures.Hero
 
         public void OnHealthChanged(int currentHealth)
         {
-            _session.Data.Hp = currentHealth;
+            _session.Data.Hp.Value = currentHealth;
         }
 
         protected override void Update()

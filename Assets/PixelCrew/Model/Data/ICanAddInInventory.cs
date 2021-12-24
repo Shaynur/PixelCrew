@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
-
-namespace Assets.PixelCrew.Model.Data
+﻿namespace Assets.PixelCrew.Model.Data
 {
     public interface ICanAddInInventory
     {

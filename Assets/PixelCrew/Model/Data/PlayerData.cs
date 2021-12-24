@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using Assets.PixelCrew.Model.Data.Properties;
 using UnityEngine;
 
 namespace Assets.PixelCrew.Model.Data
@@ -8,7 +8,7 @@ namespace Assets.PixelCrew.Model.Data
     public class PlayerData
     {
         [SerializeField] private InventoryData _inventory;
-        public int Hp;
+        public IntProperty Hp = new IntProperty();
 
         public InventoryData Inventory => _inventory;
 

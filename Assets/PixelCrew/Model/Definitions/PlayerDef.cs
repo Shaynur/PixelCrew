@@ -1,5 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.PixelCrew.Model.Definitions
 {
@@ -8,6 +7,8 @@ namespace Assets.PixelCrew.Model.Definitions
     public class PlayerDef : ScriptableObject
     {
         [SerializeField] private int _inventorySize;
+        [SerializeField] private int _maxHealth;
         public int InventorySize => _inventorySize;
+        public int MaxHealth => _maxHealth;
     }
 }

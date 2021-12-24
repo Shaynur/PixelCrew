@@ -47,5 +47,13 @@ namespace Assets.PixelCrew.Creatures.Hero
                 _hero.UseHPpotion();
             }
         }
+
+        public void OnMainMenu(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+                _hero.OpenMainMenu();
+            }
+        }
     }
 }

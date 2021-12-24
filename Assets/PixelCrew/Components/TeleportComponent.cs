@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,9 +31,9 @@ namespace Assets.PixelCrew.Components
             SetLockInput(input, false);
         }
 
-        private void SetLockInput( PlayerInput input, bool isLocked)
+        private void SetLockInput(PlayerInput input, bool isLocked)
         {
-            if(input != null)
+            if (input != null)
             {
                 input.enabled = !isLocked;
             }

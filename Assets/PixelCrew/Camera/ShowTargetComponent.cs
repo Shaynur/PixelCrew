@@ -10,7 +10,7 @@ namespace Assets.PixelCrew.Camera
 
         private void OnValidate()
         {
-            if(_controller == null)
+            if (_controller == null)
             {
                 _controller = FindObjectOfType<CameraStateController>();
             }

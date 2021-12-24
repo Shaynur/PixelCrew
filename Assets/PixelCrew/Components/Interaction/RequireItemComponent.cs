@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using Assets.PixelCrew.Model;
+﻿using Assets.PixelCrew.Model;
 using Assets.PixelCrew.Model.Data;
-using Assets.PixelCrew.Model.Definitions;
 using UnityEngine;
 using UnityEngine.Events;
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.PixelCrew.Model.Definitions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,7 +7,6 @@ namespace Assets.PixelCrew.Components.Health
 {
     public class HealthComponent : MonoBehaviour
     {
-        [SerializeField] private int _maxHealth;
         [SerializeField] private int _health;
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] private UnityEvent _onDamage;
@@ -15,15 +15,15 @@ namespace Assets.PixelCrew.Components.Health
 
         private void Start()
         {
-            SetHealth(_maxHealth);
+            SetHealth(DefsFacade.I.Player.MaxHealth);
         }
 
         public void SetHealth(int hp)
         {
             _health = hp;
-            if (_health > _maxHealth)
+            if (_health > DefsFacade.I.Player.MaxHealth)
             {
-                _health = _maxHealth;
+                _health = DefsFacade.I.Player.MaxHealth;
             }
         }
 

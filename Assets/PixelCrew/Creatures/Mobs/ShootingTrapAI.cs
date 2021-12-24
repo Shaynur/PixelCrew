@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Assets.PixelCrew.Animations;
+﻿using Assets.PixelCrew.Animations;
 using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Utils;
 using UnityEngine;
@@ -15,7 +13,7 @@ namespace Assets.PixelCrew.Creatures.Mobs
 
         private void Update()
         {
-            if(_vision.IsTouchingLayer && _cooldown.IsReady)
+            if (_vision.IsTouchingLayer && _cooldown.IsReady)
             {
                 Shoot();
             }

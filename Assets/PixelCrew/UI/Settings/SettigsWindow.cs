@@ -1,35 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.PixelCrew.Model.Data;
+using Assets.PixelCrew.UI.Widgets;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Assets.PixelCrew.UI.Settings
 {
     public class SettigsWindow : AnimatedWindow
     {
-        public void OnShowSettings()
+        [SerializeField] private AudioSettingsWidget _music;
+        [SerializeField] private AudioSettingsWidget _sfx;
+
+        protected override void Start()
         {
-
+            base.Start();
+            _music.SetModel(GameSettings.I.Music);
+            _sfx.SetModel(GameSettings.I.Sfx);
         }
-
-        public void OnStartGame()
-        {
-            SceneManager.LoadScene("Level1");
-        }
-
-        public void OnExit()
+        public void OnShowMainMenu()
         {
             Close();
-        }
-
-        public override void OnCloseAnimationComplete()
-        {
-            base.OnCloseAnimationComplete();
-            Application.Quit();
-
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#endif
+            var window = Resources.Load<GameObject>("UI/MainMenuWindow");
+            var canvas = FindObjectOfType<Canvas>();
+            if (window && canvas)
+            {
+                Instantiate(window, canvas.transform);
+            }
         }
     }
 }

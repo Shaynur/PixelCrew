@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using Assets.PixelCrew.Creatures.Hero;
 using Assets.PixelCrew.Model;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.PixelCrew.Components.LevelManagment
 {

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.PixelCrew.Creatures.Weapons
 {
@@ -10,7 +9,7 @@ namespace Assets.PixelCrew.Creatures.Weapons
 
         protected Rigidbody2D Rigibbody;
         protected int Direction;
-        
+
         protected virtual void Start()
         {
             var mod = _invertX ? -1 : 1;

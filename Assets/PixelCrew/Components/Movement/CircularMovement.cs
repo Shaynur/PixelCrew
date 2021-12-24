@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Assets.PixelCrew.Utils;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class CircularMovement : MonoBehaviour
 {
