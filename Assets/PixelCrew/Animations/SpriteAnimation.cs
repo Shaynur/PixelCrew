@@ -22,7 +22,6 @@ namespace Assets.PixelCrew.Animations
             _renderer = GetComponent<SpriteRenderer>();
             _secPerFrame = 1f / _framerate;
             _currentClip = 0;
-
             StartAnimation();
         }
 
@@ -33,7 +32,10 @@ namespace Assets.PixelCrew.Animations
 
         private void OnBecameInvisible()
         {
-            enabled = false;
+            if (_clips.Length > 0 && _clips[_currentClip].Loop)
+            {
+                enabled = false;
+            }
         }
 
         public void SetClip(string clipName)
@@ -67,7 +69,6 @@ namespace Assets.PixelCrew.Animations
 
             var clip = _clips[_currentClip];
             if (_currentFrame >= clip.Sprites.Length)
-
             {
                 if (clip.Loop)
                 {

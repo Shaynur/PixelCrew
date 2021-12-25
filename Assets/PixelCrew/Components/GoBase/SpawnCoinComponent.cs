@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.PixelCrew.Utils;
+using UnityEngine;
 
 namespace Assets.PixelCrew.Components.GoBase
 {
@@ -19,11 +20,11 @@ namespace Assets.PixelCrew.Components.GoBase
             var rand = UnityEngine.Random.Range(0, 100);
             if (_goldCoinProbability > rand)
             {
-                Instantiate(_goldCoinPrefab, _target.position, Quaternion.identity);
+                SpawnUtils.Spawn(_goldCoinPrefab, _target.position);
             }
             else
             {
-                Instantiate(_silverCoinPrefab, _target.position, Quaternion.identity);
+                SpawnUtils.Spawn(_silverCoinPrefab, _target.position);
             }
         }
     }

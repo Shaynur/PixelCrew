@@ -6793,6 +6793,7 @@ GameObject:
   - component: {fileID: 1792496479}
   - component: {fileID: 1792496481}
   - component: {fileID: 1792496480}
+  - component: {fileID: 1792496482}
   m_Layer: 13
   m_Name: SfxAudioSource
   m_TagString: SfxAudioSource
@@ -6924,6 +6925,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &1792496482
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792496478}
+  m_Enabled: 1
 --- !u!1 &1834441196
 GameObject:
   m_ObjectHideFlags: 0

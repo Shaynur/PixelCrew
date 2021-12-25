@@ -1,4 +1,5 @@
 ﻿using Assets.PixelCrew.Model.Data.Properties;
+using Assets.PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,16 +11,17 @@ namespace Assets.PixelCrew.UI.Widgets
         [SerializeField] private Text _value;
 
         private FloatPersistentProperty _model;
+        private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         private void Start()
         {
-            _slider.onValueChanged.AddListener(OnSliderValueChanged);
+            _trash.Retain(_slider.onValueChanged.Subscribe(OnSliderValueChanged));
         }
 
         public void SetModel(FloatPersistentProperty model)
         {
             _model = model;
-            _model.OnChanged += OnValueChanged;
+            _trash.Retain(model.Subscribe(OnValueChanged));
             OnValueChanged(model.Value, model.Value);
         }
 
@@ -37,8 +39,7 @@ namespace Assets.PixelCrew.UI.Widgets
 
         private void OnDestroy()
         {
-            _slider.onValueChanged.RemoveListener(OnSliderValueChanged);
-            _model.OnChanged -= OnValueChanged;
+            _trash.Dispose();
         }
     }
 }

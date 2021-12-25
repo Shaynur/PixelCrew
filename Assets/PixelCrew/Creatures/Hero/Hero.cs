@@ -62,9 +62,9 @@ namespace Assets.PixelCrew.Creatures.Hero
         public void OpenMainMenu()
         {
             Debug.Log("Try open Main menu");
-            var window = Resources.Load<GameObject>("UI/SettingsWindow");
-            //var transform = FindObjectOfType<FollowCamera>();
-            Instantiate(window, transform);
+            var window = Resources.Load<GameObject>("UI/MainMenuWindow");
+            var canvas = FindObjectOfType<Canvas>();
+            Instantiate(window, canvas.transform);
         }
 
         private void OnDestroy()

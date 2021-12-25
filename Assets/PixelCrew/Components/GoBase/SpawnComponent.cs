@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.PixelCrew.Utils;
+using UnityEngine;
 
 namespace Assets.PixelCrew.Components.GoBase
 {
@@ -18,9 +19,10 @@ namespace Assets.PixelCrew.Components.GoBase
             }
             else
             {
-                instantiate = Instantiate(_prefab, _target.position, Quaternion.identity);
+                instantiate = SpawnUtils.Spawn(_prefab, _target.position);
             }
             instantiate.transform.localScale = _target.lossyScale;
+            instantiate.SetActive(true);
         }
     }
 }

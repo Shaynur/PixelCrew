@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.PixelCrew.Utils.Disposables;
 using UnityEngine;
 
 namespace Assets.PixelCrew.Model.Data.Properties
@@ -12,6 +13,11 @@ namespace Assets.PixelCrew.Model.Data.Properties
 
         public delegate void OnPropertyChanged(TPropertyType newValue, TPropertyType oldValue);
         public event OnPropertyChanged OnChanged;
+        public IDisposable Subscribe(OnPropertyChanged call)
+        {
+            OnChanged += call;
+            return new ActionDisposable(() => OnChanged -= call);
+        }
 
         public PersistentProperty(  TPropertyType defaultValue)
         {
