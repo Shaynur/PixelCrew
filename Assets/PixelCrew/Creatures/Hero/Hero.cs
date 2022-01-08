@@ -53,18 +53,10 @@ namespace Assets.PixelCrew.Creatures.Hero
         public void OnHealthChanged(int newHealth)
         {
             _session.Data.Hp.Value = Mathf.Min(newHealth, DefsFacade.I.Player.MaxHealth);
-            if(newHealth > DefsFacade.I.Player.MaxHealth)
+            if (newHealth > DefsFacade.I.Player.MaxHealth)
             {
                 _health.SetHealth(DefsFacade.I.Player.MaxHealth);
             }
-        }
-
-        public void OpenMainMenu()
-        {
-            Debug.Log("Try open Main menu");
-            var window = Resources.Load<GameObject>("UI/MainMenuWindow");
-            var canvas = FindObjectOfType<Canvas>();
-            Instantiate(window, canvas.transform);
         }
 
         private void OnDestroy()

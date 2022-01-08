@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Assets.PixelCrew.Utils;
+﻿using Assets.PixelCrew.Utils;
 using UnityEngine;
 
 namespace Assets.PixelCrew.Components.Audio

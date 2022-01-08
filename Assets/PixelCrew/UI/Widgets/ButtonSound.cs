@@ -1,7 +1,6 @@
-﻿using Assets.PixelCrew.Components.Audio;
+﻿using Assets.PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Assets.PixelCrew.Utils;
 
 namespace Assets.PixelCrew.UI.Widgets
 {

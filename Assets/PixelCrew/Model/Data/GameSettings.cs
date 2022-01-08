@@ -1,5 +1,4 @@
-﻿using System;
-using Assets.PixelCrew.Model.Data.Properties;
+﻿using Assets.PixelCrew.Model.Data.Properties;
 using UnityEngine;
 
 namespace Assets.PixelCrew.Model.Data
