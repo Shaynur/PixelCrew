@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Assets.PixelCrew.Components.ColliderBased;
+using Assets.PixelCrew.Components.GoBase;
 using Assets.PixelCrew.Components.Health;
 using Assets.PixelCrew.Model;
 using Assets.PixelCrew.Model.Data;
@@ -8,10 +9,8 @@ using Assets.PixelCrew.Utils;
 using UnityEditor.Animations;
 using UnityEngine;
 
-namespace Assets.PixelCrew.Creatures.Hero
-{
-    public class Hero : Creature, ICanAddInInventory
-    {
+namespace Assets.PixelCrew.Creatures.Hero {
+    public class Hero : Creature, ICanAddInInventory {
         [SerializeField] private CheckCircleOverlap _interactionCheck;
         [SerializeField] private LayerCheck _wallCheck;
 
@@ -19,6 +18,7 @@ namespace Assets.PixelCrew.Creatures.Hero
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
         [SerializeField] private ParticleSystem _hitParticles;
+        [SerializeField] private SpawnComponent _throwSpawner;
 
 
         private bool _allowDoubleJump;
@@ -26,21 +26,33 @@ namespace Assets.PixelCrew.Creatures.Hero
         private GameSession _session;
         private HealthComponent _health;
         private float _defaultGravityScale;
-
-        private int CoinsCount => _session.Data.Inventory.Count("Coins");
-        private int SwordCount => _session.Data.Inventory.Count("Sword");
-
         private static readonly int ThrowKey = Animator.StringToHash("throw");
 
-        protected override void Awake()
-        {
+        private const string SwordId = "Sword";
+        private int CoinsCount => _session.Data.Inventory.Count("Coins");
+        private int SwordCount => _session.Data.Inventory.Count(SwordId);
+        private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
+        private bool CanThrow {
+            get {
+                if (SelectedItemId == SwordId) {
+                    return SwordCount > 1;
+                }
+                var def = DefsFacade.I.Items.Get(SelectedItemId);
+                return def.HasTag(ItemTag.Throwable);
+            }
+        }
+
+
+        protected override void Awake() {
             base.Awake();
             _defaultGravityScale = Rigidbody.gravityScale;
         }
 
+        public void NextItem() {
+            _session.QuickInventory.SetNextItem();
+        }
 
-        private void Start()
-        {
+        private void Start() {
             _session = FindObjectOfType<GameSession>();
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
             _health = GetComponent<HealthComponent>();
@@ -50,38 +62,30 @@ namespace Assets.PixelCrew.Creatures.Hero
             StartCoroutine(FadeIn());
         }
 
-        public void OnHealthChanged(int newHealth)
-        {
+        public void OnHealthChanged(int newHealth) {
             _session.Data.Hp.Value = Mathf.Min(newHealth, DefsFacade.I.Player.MaxHealth);
-            if (newHealth > DefsFacade.I.Player.MaxHealth)
-            {
+            if (newHealth > DefsFacade.I.Player.MaxHealth) {
                 _health.SetHealth(DefsFacade.I.Player.MaxHealth);
             }
         }
 
-        private void OnDestroy()
-        {
+        private void OnDestroy() {
             _session.Data.Inventory.OnChanged -= OnInventoryChanged;
         }
 
-        private void OnInventoryChanged(string id, int value)
-        {
-            if (id == "Sword")
-            {
+        private void OnInventoryChanged(string id, int value) {
+            if (id == SwordId) {
                 UpdateHeroWeapon();
             }
         }
 
-        private void UpdateHeroWeapon()
-        {
+        private void UpdateHeroWeapon() {
             CreatureAnimator.runtimeAnimatorController = SwordCount > 0 ? _armed : _disarmed;
         }
 
-        private IEnumerator FadeIn()
-        {
+        private IEnumerator FadeIn() {
             var renderer = GetComponent<Renderer>();
-            for (float f = 0f; f <= 1; f += 0.1f)
-            {
+            for (float f = 0f; f <= 1; f += 0.1f) {
                 Color c = renderer.material.color;
                 c.a = f;
                 renderer.material.color = c;
@@ -89,44 +93,35 @@ namespace Assets.PixelCrew.Creatures.Hero
             }
         }
 
-
-        protected override void Update()
-        {
+        protected override void Update() {
             base.Update();
 
-            if (_wallCheck.IsTouchingLayer && Direction.x == transform.localScale.x)
-            {
+            if (_wallCheck.IsTouchingLayer && Direction.x == transform.localScale.x) {
                 _isOnWall = true;
                 Rigidbody.gravityScale = 0;
             }
-            else
-            {
+            else {
                 _isOnWall = false;
                 Rigidbody.gravityScale = _defaultGravityScale;
             }
         }
 
-        protected override float CalculateYVelocity()
-        {
+        protected override float CalculateYVelocity() {
             var isJumpPressing = Direction.y > 0;
 
-            if (_isGrounded || _isOnWall)
-            {
+            if (_isGrounded || _isOnWall) {
                 _allowDoubleJump = true;
             }
 
-            if (!isJumpPressing && _isOnWall)
-            {
+            if (!isJumpPressing && _isOnWall) {
                 return 0f;
             }
 
             return base.CalculateYVelocity();
         }
 
-        protected override float CalculateJumpVelocity(float yVelocity)
-        {
-            if (!_isGrounded && _allowDoubleJump)
-            {
+        protected override float CalculateJumpVelocity(float yVelocity) {
+            if (!_isGrounded && _allowDoubleJump) {
                 DoJumpVfx();
                 _allowDoubleJump = false;
                 return _jumpSpeed;
@@ -134,22 +129,18 @@ namespace Assets.PixelCrew.Creatures.Hero
             return base.CalculateJumpVelocity(yVelocity);
         }
 
-        public bool AddInInventory(string id, int value)
-        {
+        public bool AddInInventory(string id, int value) {
             return _session.Data.Inventory.Add(id, value);
         }
 
-        public override void TakeDamage()
-        {
+        public override void TakeDamage() {
             base.TakeDamage();
-            if (CoinsCount > 0)
-            {
+            if (CoinsCount > 0) {
                 SpawnCoins();
             }
         }
 
-        private void SpawnCoins()
-        {
+        private void SpawnCoins() {
             var numCoinsToDispose = Mathf.Min(CoinsCount, 5);
             _session.Data.Inventory.Remove("Coin", numCoinsToDispose);
 
@@ -160,73 +151,54 @@ namespace Assets.PixelCrew.Creatures.Hero
             _hitParticles.Play();
         }
 
-        public void Interact()
-        {
+        public void Interact() {
             _interactionCheck.Check();
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            if (other.gameObject.IsInLayer(_groundLayer))
-            {
+        private void OnCollisionEnter2D(Collision2D other) {
+            if (other.gameObject.IsInLayer(_groundLayer)) {
                 var contact = other.contacts[0];
-                if (contact.relativeVelocity.y >= 20)
-                {
+                if (contact.relativeVelocity.y >= 20) {
                     _particles.Spawn("SlamDown");
                 }
             }
         }
 
-        public override void Attack()
-        {
+        public override void Attack() {
             if (SwordCount <= 0) return;
             base.Attack();
         }
 
-        public void OnDoThrow()
-        {
-            _particles.Spawn("Throw");
+        public void OnDoThrow() {
+            var throwableId = SelectedItemId;
+            var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
+            _throwSpawner.SetPrefab(throwableDef.Projectile);
+            _throwSpawner.Spawn();
+            _session.Data.Inventory.Remove(throwableId, 1);
+            //_particles.Spawn("Throw");
         }
 
-        public void Throw()
-        {
-            if (_throwCooldown.IsReady)
-            {
-                TryThrowSword();
+        public void Throw() {
+            if (_throwCooldown.IsReady && CanThrow) {
+                TryThrowItem();
             }
         }
 
-        public void UseHPpotion()
-        {
-            if (_session.Data.Inventory.Count("HPpotion") < 1) return;
-            _session.Data.Inventory.Remove("HPpotion", 1);
-            var healthComponent = GetComponent<HealthComponent>();
-            healthComponent.ModifyHealth(5);
-        }
-
-        public IEnumerator ThrowAbility()
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                if (TryThrowSword())
-                {
-                    yield return new WaitForSeconds(0.3f);
-                }
+        public IEnumerator SuperThrowAbility() {
+            var throwableCount = _session.Data.Inventory.Count(SelectedItemId);
+            var possibleCount = SelectedItemId == SwordId ? throwableCount - 1 : throwableCount;
+            var numThrows = Mathf.Min(3, possibleCount);
+            for (int i = 0; i < numThrows; i++) {
+                TryThrowItem();
+                yield return new WaitForSeconds(0.3f);
             }
             yield return null;
         }
 
-        private bool TryThrowSword()
-        {
-            if (SwordCount > 1)
-            {
-                Sounds.Play("Range");
-                _session.Data.Inventory.Remove("Sword", 1);
-                CreatureAnimator.SetTrigger(ThrowKey);
-                _throwCooldown.Reset();
-                return true;
-            }
-            return false;
+        private void TryThrowItem() {
+            Sounds.Play("Range");
+            CreatureAnimator.SetTrigger(ThrowKey);
+            _throwCooldown.Reset();
         }
     }
 }

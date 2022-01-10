@@ -1,20 +1,18 @@
-﻿namespace Assets.PixelCrew.Model.Data.Properties
-{
-    public abstract class PersistentProperty<TPropertyType> : ObservableProperty<TPropertyType>
-    {
+﻿namespace Assets.PixelCrew.Model.Data.Properties {
+    public abstract class PersistentProperty<TPropertyType> : ObservableProperty<TPropertyType> {
         protected TPropertyType _stored;
         private readonly TPropertyType _defaultValue;
 
-        public PersistentProperty(TPropertyType defaultValue)
-        {
+        public PersistentProperty(TPropertyType defaultValue) {
             _defaultValue = defaultValue;
         }
 
-        public override TPropertyType Value
-        {
+        protected abstract void Write(TPropertyType value);
+        protected abstract TPropertyType Read(TPropertyType defaultValue);
+
+        public override TPropertyType Value {
             get => _stored;
-            set
-            {
+            set {
                 var isEquals = _stored.Equals(value);
                 if (isEquals) return;
                 var oldValue = _stored;
@@ -24,18 +22,12 @@
             }
         }
 
-        protected void Init()
-        {
+        protected void Init() {
             _stored = _value = Read(_defaultValue);
         }
 
-        protected abstract void Write(TPropertyType value);
-        protected abstract TPropertyType Read(TPropertyType defaultValue);
-
-        public void Validate()
-        {
-            if (!_stored.Equals(_value))
-            {
+        public void Validate() {
+            if (!_stored.Equals(_value)) {
                 Value = _value;
             }
         }

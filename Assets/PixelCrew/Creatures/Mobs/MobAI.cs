@@ -5,10 +5,9 @@ using Assets.PixelCrew.Components.GoBase;
 using Assets.PixelCrew.Creatures.Mobs.Patrolling;
 using UnityEngine;
 
-namespace Assets.PixelCrew.Creatures.Mobs
-{
-    public class MobAI : MonoBehaviour
-    {
+namespace Assets.PixelCrew.Creatures.Mobs {
+    public class MobAI : MonoBehaviour {
+
         [SerializeField] private LayerCheck _vision;
         [SerializeField] private LayerCheck _canAttack;
 
@@ -26,72 +25,60 @@ namespace Assets.PixelCrew.Creatures.Mobs
         private bool _isDead;
         private Patrol _patrol;
 
-        private void Awake()
-        {
+        private void Awake() {
             _particles = GetComponent<SpawnListComponent>();
             _creature = GetComponent<Creature>();
             _animator = GetComponent<Animator>();
             _patrol = GetComponent<Patrol>();
         }
 
-        private void Start()
-        {
+        private void Start() {
             StartState(_patrol.DoPatrol());
         }
 
-        private void StartState(IEnumerator coroutine)
-        {
+        private void StartState(IEnumerator coroutine) {
             _creature.SetDirection(Vector2.zero);
-            if (_current != null)
-            {
+            if (_current != null) {
                 StopCoroutine(_current);
             }
             _current = StartCoroutine(coroutine);
         }
 
-        public void OnHeroInVision(GameObject go)
-        {
+        public void OnHeroInVision(GameObject go) {
             if (_isDead) return;
             _target = go;
             StartState(AgroToHero());
         }
 
-        private IEnumerator AgroToHero()
-        {
+        private IEnumerator AgroToHero() {
             LookAtHero();
             _particles.Spawn("Exclamation");
             yield return new WaitForSeconds(_alarmDelay);
             StartState(GoToHero());
         }
 
-        private void LookAtHero()
-        {
+        private void LookAtHero() {
             var direction = GetDirectionToTarget();
             _creature.UpdateSpriteDirection(direction);
         }
 
-        private Vector2 GetDirectionToTarget()
-        {
+        private Vector2 GetDirectionToTarget() {
             var direction = _target.transform.position - transform.position;
             direction.y = 0;
             return direction.normalized;
         }
-        private void SetDirectionToTarget()
-        {
+
+        private void SetDirectionToTarget() {
             var direction = GetDirectionToTarget();
             _creature.SetDirection(direction);
         }
 
-        private IEnumerator GoToHero()
-        {
-            while (_vision.IsTouchingLayer)
-            {
-                if (_canAttack.IsTouchingLayer)
-                {
+        private IEnumerator GoToHero() {
+            while (_vision.IsTouchingLayer) {
+                if (_canAttack.IsTouchingLayer) {
                     StartState(Attack());
                 }
-                else
-                {
+                else {
                     SetDirectionToTarget();
                 }
                 yield return null;
@@ -102,10 +89,8 @@ namespace Assets.PixelCrew.Creatures.Mobs
             StartState(_patrol.DoPatrol());
         }
 
-        private IEnumerator Attack()
-        {
-            while (_canAttack.IsTouchingLayer)
-            {
+        private IEnumerator Attack() {
+            while (_canAttack.IsTouchingLayer) {
                 _creature.Attack();
                 yield return new WaitForSeconds(_attackCoolDown);
             }
@@ -114,13 +99,11 @@ namespace Assets.PixelCrew.Creatures.Mobs
         }
 
 
-        public void OnDie()
-        {
+        public void OnDie() {
             _isDead = true;
             _animator.SetBool(IsDeadKey, true);
             _creature.SetDirection(Vector2.zero);
-            if (_current != null)
-            {
+            if (_current != null) {
                 StopCoroutine(_current);
             }
         }

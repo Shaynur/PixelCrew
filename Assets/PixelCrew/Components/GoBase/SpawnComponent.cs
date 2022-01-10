@@ -1,4 +1,5 @@
-﻿using Assets.PixelCrew.Utils;
+﻿using System;
+using Assets.PixelCrew.Utils;
 using UnityEngine;
 
 namespace Assets.PixelCrew.Components.GoBase
@@ -23,6 +24,10 @@ namespace Assets.PixelCrew.Components.GoBase
             }
             instantiate.transform.localScale = _target.lossyScale;
             instantiate.SetActive(true);
+        }
+
+        public void SetPrefab(GameObject prefab) {
+            _prefab = prefab;
         }
     }
 }

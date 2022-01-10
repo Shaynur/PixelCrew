@@ -1154,12 +1154,12 @@ PrefabInstance:
     - target: {fileID: 7213589909854819421, guid: 521ad1679ef408041b659b65a481fc19,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.22
+      value: -29.754
       objectReference: {fileID: 0}
     - target: {fileID: 7213589909854819421, guid: 521ad1679ef408041b659b65a481fc19,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.66
+      value: -0.632
       objectReference: {fileID: 0}
     - target: {fileID: 7213589909854819421, guid: 521ad1679ef408041b659b65a481fc19,
         type: 3}
@@ -3099,7 +3099,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064510731}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.241598, y: -0.013459206, z: -10}
+  m_LocalPosition: {x: -21.775599, y: 0.014540672, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 91212651}
@@ -5533,12 +5533,12 @@ PrefabInstance:
     - target: {fileID: 6094404023735656537, guid: 147f5554a0ebeeb4abf5eeb79d158a89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.241598
+      value: -21.775599
       objectReference: {fileID: 0}
     - target: {fileID: 6094404023735656537, guid: 147f5554a0ebeeb4abf5eeb79d158a89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.013459206
+      value: 0.014540672
       objectReference: {fileID: 0}
     - target: {fileID: 6094404023735656537, guid: 147f5554a0ebeeb4abf5eeb79d158a89,
         type: 3}
@@ -5708,7 +5708,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: PearlProjectile
+        Value: 10
     Hp:
       _value: 10
 --- !u!4 &1305246333

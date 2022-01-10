@@ -23,7 +23,7 @@ namespace Assets.PixelCrew.Creatures.Hero {
 
         public void OnThrow(InputAction.CallbackContext context) {
             if (context.performed) {
-                StartCoroutine(_hero.ThrowAbility());
+                StartCoroutine(_hero.SuperThrowAbility());
             }
             else if (context.canceled && context.duration < 1) {
                 _hero.Throw();
@@ -32,11 +32,14 @@ namespace Assets.PixelCrew.Creatures.Hero {
 
         public void OnUseHPpotion(InputAction.CallbackContext context) {
             if (context.canceled) {
-                _hero.UseHPpotion();
+//                _hero.UseHPpotion();
             }
         }
 
-        public void OnMainMenu(InputAction.CallbackContext context) {
+        public void OnNextItem(InputAction.CallbackContext context) {
+            if (context.canceled) {
+                _hero.NextItem();
+            }
         }
     }
 }

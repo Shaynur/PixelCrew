@@ -6,14 +6,6 @@
             "id": "27a3cfa3-459d-44e0-a45c-4a2735e78a6e",
             "actions": [
                 {
-                    "name": "MainMenu",
-                    "type": "Button",
-                    "id": "dfb5aaa2-123f-45ad-8039-f05f23333573",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "a23dd7d4-a883-410b-a69a-1a0ab42412de",
@@ -49,6 +41,14 @@
                     "name": "UseHPpotion",
                     "type": "Button",
                     "id": "bffb6900-dc9d-4bdb-b5fc-4d171304be45",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "NextItem",
+                    "type": "Button",
+                    "id": "dfb5aaa2-123f-45ad-8039-f05f23333573",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -157,11 +157,11 @@
                 {
                     "name": "",
                     "id": "491788bb-0c58-4a82-80ff-e16621250231",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MainMenu",
+                    "action": "NextItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
