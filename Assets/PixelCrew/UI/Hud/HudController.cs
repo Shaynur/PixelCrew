@@ -4,22 +4,20 @@ using Assets.PixelCrew.UI.Widgets;
 using Assets.PixelCrew.Utils;
 using UnityEngine;
 
-namespace Assets.PixelCrew.UI.Hud
-{
-    public class HudController : MonoBehaviour
-    {
+namespace Assets.PixelCrew.UI.Hud {
+    public class HudController : MonoBehaviour {
+
         [SerializeField] private ProgressbarWidget _healthBar;
 
         private GameSession _session;
-        private void Start()
-        {
+
+        private void Start() {
             _session = FindObjectOfType<GameSession>();
             _session.Data.Hp.OnChanged += OnHealthChanged;
             OnHealthChanged(_session.Data.Hp.Value, 0);
         }
 
-        private void OnHealthChanged(int newValue, int oldValue)
-        {
+        private void OnHealthChanged(int newValue, int oldValue) {
             var maxHealth = DefsFacade.I.Player.MaxHealth;
             var value = (float)newValue / maxHealth;
             _healthBar.SetProgress(value);
@@ -29,8 +27,7 @@ namespace Assets.PixelCrew.UI.Hud
             WindowUtils.CreateWindow("UI/InGameMenuWindow");
         }
 
-        private void OnDestroy()
-        {
+        private void OnDestroy() {
             _session.Data.Hp.OnChanged -= OnHealthChanged;
         }
     }

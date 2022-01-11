@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3155100896482701587}
   - component: {fileID: 6789406172182787820}
   - component: {fileID: 6789406172182787816}
+  - component: {fileID: 6789406172346248415}
   m_Layer: 10
   m_Name: WoodDoor(Exit)
   m_TagString: Interactable
@@ -169,7 +170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8924b73116a68e54bb19a0bc4e90b9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _required: []
+  _required:
+  - Id: Key
+    Value: 1
   _removeAfterUse: 1
   _onSuccess:
     m_PersistentCalls:
@@ -198,7 +201,18 @@ MonoBehaviour:
         m_CallState: 2
   _onFail:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6789406172346248415}
+        m_MethodName: Show
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!58 &6789406172182787820
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -228,3 +242,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneName: Level2
+--- !u!114 &6789406172346248415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6789406172182787826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a852a8e0b6026ef4f81fb240604084d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 0
+  _bound:
+    _sentences:
+    - You need a key..
+    - Try to search left side
+  _external: {fileID: 0}

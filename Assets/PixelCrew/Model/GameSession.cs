@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 namespace Assets.PixelCrew.Model {
 
     public class GameSession : MonoBehaviour {
+
         [SerializeField] private PlayerData _data;
+
         public PlayerData Data => _data;
         private PlayerData _save;
         public QuickInventoryModel QuickInventory { get; private set; }
@@ -32,7 +34,6 @@ namespace Assets.PixelCrew.Model {
         private void LoadHud() {
             SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
         }
-
 
         public void SavePlayerData() {
             _save = _data.Clone();
