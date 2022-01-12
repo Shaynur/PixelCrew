@@ -1,12 +1,13 @@
 ﻿using Assets.PixelCrew.Model;
 using Assets.PixelCrew.Model.Data;
 using Assets.PixelCrew.Model.Definitions;
+using Assets.PixelCrew.UI.Widgets;
 using Assets.PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.PixelCrew.UI.Hud.QuickInventory {
-    public class InventoryItemWidget : MonoBehaviour {
+    public class InventoryItemWidget : MonoBehaviour, IItemRenderer<InventoryItemData> {
 
         [SerializeField] private Image _icon;
         [SerializeField] private GameObject _selection;

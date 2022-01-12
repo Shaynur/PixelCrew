@@ -41,6 +41,7 @@ namespace Assets.PixelCrew.Model {
 
         public void LoadPlayerData() {
             _data = _save.Clone();
+            _trash.Dispose();
             InitModels();
         }
 
