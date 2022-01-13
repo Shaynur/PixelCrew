@@ -10034,11 +10034,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodDoor(Exit)
       objectReference: {fileID: 0}
-    - target: {fileID: 6789406172346248415, guid: 9d6fc537f98a0b44192fdfb5c792c101,
-        type: 3}
-      propertyPath: _mode
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d6fc537f98a0b44192fdfb5c792c101, type: 3}
 --- !u!4 &6789406172346248413 stripped

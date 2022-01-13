@@ -3,21 +3,22 @@ using Assets.PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Assets.PixelCrew.UI.MainMenu {
+namespace Assets.PixelCrew.UI.Windows.MainMenu {
+
     public class MainMenuWindow : AnimatedWindow {
         private Action _closeAction;
 
         public void OnShowSettings() {
-            //_closeAction = () =>
-            //{
             WindowUtils.CreateWindow("UI/SettingsWindow");
-            //};
-            //Close();
         }
 
         public void OnStartGame() {
             _closeAction = () => { SceneManager.LoadScene("Level1"); };
             Close();
+        }
+
+        public void OnLanguages() {
+            WindowUtils.CreateWindow("UI/LocalizationWindow");
         }
 
         public void OnExit() {

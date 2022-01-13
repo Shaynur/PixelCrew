@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using Assets.PixelCrew.Model;
+﻿using Assets.PixelCrew.Model;
 using Assets.PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Assets.PixelCrew.UI.InGameMenu {
+namespace Assets.PixelCrew.UI.Windows.InGameMenu {
+
     public class InGameMenuWindow : AnimatedWindow {
 
         private float _defaultTimeScale;

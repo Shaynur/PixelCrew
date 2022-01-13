@@ -2,7 +2,8 @@
 using Assets.PixelCrew.UI.Widgets;
 using UnityEngine;
 
-namespace Assets.PixelCrew.UI.Settings {
+namespace Assets.PixelCrew.UI.Windows.Settings {
+
     public class SettigsWindow : AnimatedWindow {
         [SerializeField] private AudioSettingsWidget _music;
         [SerializeField] private AudioSettingsWidget _sfx;

@@ -23,4 +23,8 @@ MonoBehaviour:
   - Key: button_exit
     Value: "\u0432\u044B\u0445\u043E\u0434\r"
   - Key: selected_language
-    Value: "\u0412\u044B\u0431\u0440\u0430\u043D \u044F\u0437\u044B\u043A: {0}"
+    Value: "\u0412\u044B\u0431\u0440\u0430\u043D \u044F\u0437\u044B\u043A: {0}\r"
+  - Key: button_back
+    Value: "\u043D\u0430\u0437\u0430\u0434\r"
+  - Key: button_locales
+    Value: "\u044F\u0437\u044B\u043A"

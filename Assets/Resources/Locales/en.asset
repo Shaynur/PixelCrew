@@ -23,4 +23,8 @@ MonoBehaviour:
   - Key: button_exit
     Value: "exit\r"
   - Key: selected_language
-    Value: 'Selected language: {0}'
+    Value: "Selected language: {0}\r"
+  - Key: button_back
+    Value: "back\r"
+  - Key: button_locales
+    Value: language
