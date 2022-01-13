@@ -1,0 +1,5 @@
+menu_title	menu
+button_start	start
+button_option	options
+button_exit	exit
+selected_language	Selected language: {0}

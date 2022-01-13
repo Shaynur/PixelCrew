@@ -3,6 +3,7 @@ using Assets.PixelCrew.Utils.Disposables;
 using UnityEngine;
 
 namespace Assets.PixelCrew.Model.Data.Properties {
+
     [Serializable]
     public class ObservableProperty<TPropertyType> {
 

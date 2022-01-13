@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Assets.PixelCrew.Model.Definitions {
+
     [CreateAssetMenu(menuName = "Defs/DefsFacade", fileName = "DefsFacade")]
     public class DefsFacade : ScriptableObject {
         [SerializeField] private InventoryItemsDef _items;
