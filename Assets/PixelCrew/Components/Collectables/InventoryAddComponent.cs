@@ -1,6 +1,6 @@
 ﻿using System;
 using Assets.PixelCrew.Model.Data;
-using Assets.PixelCrew.Model.Definitions;
+using Assets.PixelCrew.Model.Definitions.Repository.Items;
 using Assets.PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.Events;

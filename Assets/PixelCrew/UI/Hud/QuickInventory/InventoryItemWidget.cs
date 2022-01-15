@@ -1,6 +1,7 @@
 ﻿using Assets.PixelCrew.Model;
 using Assets.PixelCrew.Model.Data;
 using Assets.PixelCrew.Model.Definitions;
+using Assets.PixelCrew.Model.Definitions.Repository.Items;
 using Assets.PixelCrew.UI.Widgets;
 using Assets.PixelCrew.Utils.Disposables;
 using UnityEngine;

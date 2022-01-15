@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.PixelCrew.Model.Definitions;
+using Assets.PixelCrew.Model.Definitions.Repository.Items;
 using Assets.PixelCrew.Utils.Disposables;
 using UnityEngine;
 

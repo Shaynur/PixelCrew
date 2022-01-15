@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a8aae4bb3175d408c0d61fce2b7530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: HPpotion
+  _id: SmallHealthPotion
   _count: 1
   _onSuccess:
     m_PersistentCalls:

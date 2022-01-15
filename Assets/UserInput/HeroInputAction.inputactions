@@ -30,17 +30,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Throw",
+                    "name": "Use",
                     "type": "Button",
                     "id": "8387e30b-b744-4291-a39a-879e18b390e5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "UseHPpotion",
-                    "type": "Button",
-                    "id": "bffb6900-dc9d-4bdb-b5fc-4d171304be45",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -139,18 +131,7 @@
                     "interactions": "Hold(duration=1)",
                     "processors": "",
                     "groups": "",
-                    "action": "Throw",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "208205d9-84d3-48aa-9e00-cf30c53a68f4",
-                    "path": "<Keyboard>/h",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "UseHPpotion",
+                    "action": "Use",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

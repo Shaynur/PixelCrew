@@ -1,10 +1,13 @@
 ﻿using System.Collections;
+using System.Diagnostics;
 using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Components.GoBase;
 using Assets.PixelCrew.Components.Health;
 using Assets.PixelCrew.Model;
 using Assets.PixelCrew.Model.Data;
 using Assets.PixelCrew.Model.Definitions;
+using Assets.PixelCrew.Model.Definitions.Repository;
+using Assets.PixelCrew.Model.Definitions.Repository.Items;
 using Assets.PixelCrew.Utils;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -164,9 +167,70 @@ namespace Assets.PixelCrew.Creatures.Hero {
             }
         }
 
+        private Cooldown _speedUpCooldown = new Cooldown();
+        private float _additionalSpeed;
+
+        protected override float CalculateSpeed() {
+            if (_speedUpCooldown.IsReady) {
+                _additionalSpeed = 0f;
+            }
+            return base.CalculateSpeed() + _additionalSpeed;
+        }
+
         public override void Attack() {
             if (SwordCount <= 0) return;
             base.Attack();
+        }
+
+        public void UseInventory() {
+            if (IsSelectedItemHasTag(ItemTag.Throwable))
+                PerformThrow();
+            else if (IsSelectedItemHasTag(ItemTag.Potion))
+                UsePotion();
+        }
+
+        private bool IsSelectedItemHasTag(ItemTag tag) {
+            return _session.QuickInventory.SelectedDef.HasTag(tag);
+        }
+
+        private void UsePotion() {
+            var potion = DefsFacade.I.Potions.Get(SelectedItemId);
+            switch (potion.Effect) {
+                case Effect.AddHp:
+                    _session.Data.Hp.Value += (int)potion.Value;
+                    break;
+                case Effect.SpeedUp:
+                    _speedUpCooldown.Value = _speedUpCooldown.TimeLasts + potion.Time;
+                    _additionalSpeed = Mathf.Max(potion.Value, _additionalSpeed);
+                    _speedUpCooldown.Reset();
+                    break;
+            }
+            _session.Data.Inventory.Remove(potion.Id, 1);
+        }
+
+        private void PerformThrow() {
+            if (_throwCooldown.IsReady && CanThrow) {
+                TryThrowItem();
+            }
+        }
+
+        public IEnumerator SuperThrowAbility() {
+            if (IsSelectedItemHasTag(ItemTag.Throwable)) {
+                var throwableCount = _session.Data.Inventory.Count(SelectedItemId);
+                var possibleCount = SelectedItemId == SwordId ? throwableCount - 1 : throwableCount;
+                var numThrows = Mathf.Min(3, possibleCount);
+                for (int i = 0; i < numThrows; i++) {
+                    TryThrowItem();
+                    yield return new WaitForSeconds(0.3f);
+                }
+            }
+            // yield return null; // ??
+        }
+
+        private void TryThrowItem() {
+            Sounds.Play("Range");
+            CreatureAnimator.SetTrigger(ThrowKey);
+            _throwCooldown.Reset();
         }
 
         public void OnDoThrow() {
@@ -175,30 +239,6 @@ namespace Assets.PixelCrew.Creatures.Hero {
             _throwSpawner.SetPrefab(throwableDef.Projectile);
             _throwSpawner.Spawn();
             _session.Data.Inventory.Remove(throwableId, 1);
-            //_particles.Spawn("Throw");
-        }
-
-        public void Throw() {
-            if (_throwCooldown.IsReady && CanThrow) {
-                TryThrowItem();
-            }
-        }
-
-        public IEnumerator SuperThrowAbility() {
-            var throwableCount = _session.Data.Inventory.Count(SelectedItemId);
-            var possibleCount = SelectedItemId == SwordId ? throwableCount - 1 : throwableCount;
-            var numThrows = Mathf.Min(3, possibleCount);
-            for (int i = 0; i < numThrows; i++) {
-                TryThrowItem();
-                yield return new WaitForSeconds(0.3f);
-            }
-            yield return null;
-        }
-
-        private void TryThrowItem() {
-            Sounds.Play("Range");
-            CreatureAnimator.SetTrigger(ThrowKey);
-            _throwCooldown.Reset();
         }
     }
 }

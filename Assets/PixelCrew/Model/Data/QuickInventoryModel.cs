@@ -1,6 +1,7 @@
 ﻿using System;
 using Assets.PixelCrew.Model.Data.Properties;
 using Assets.PixelCrew.Model.Definitions;
+using Assets.PixelCrew.Model.Definitions.Repository.Items;
 using Assets.PixelCrew.Utils.Disposables;
 using UnityEngine;
 
@@ -12,7 +13,16 @@ namespace Assets.PixelCrew.Model.Data {
         public readonly IntProperty SelectedIndex = new IntProperty();
         private event Action OnChanged;
 
-        public InventoryItemData SelectedItem => Inventory[SelectedIndex.Value];
+        public InventoryItemData SelectedItem {
+            get {
+                if (Inventory.Length > 0 && Inventory.Length > SelectedIndex.Value) {
+                    return Inventory[SelectedIndex.Value];
+                }
+                return null;
+            }
+        }
+
+        public ItemDef SelectedDef => DefsFacade.I.Items.Get(SelectedItem?.Id);
 
         public QuickInventoryModel(PlayerData data) {
             _data = data;

@@ -8378,10 +8378,12 @@ MonoBehaviour:
   _data:
     _inventory:
       _inventory:
-      - Id: PearlProjectile
-        Value: 30
+      - Id: SmallHealthPotion
+        Value: 1
       - Id: Sword
         Value: 10
+      - Id: SpeedUpPotion
+        Value: 20
     Hp:
       _value: 10
   _defaultCheckpoint: level1-startPoint

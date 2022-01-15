@@ -21,18 +21,12 @@ namespace Assets.PixelCrew.Creatures.Hero {
             }
         }
 
-        public void OnThrow(InputAction.CallbackContext context) {
+        public void OnUse(InputAction.CallbackContext context) {
             if (context.performed) {
                 StartCoroutine(_hero.SuperThrowAbility());
             }
             else if (context.canceled && context.duration < 1) {
-                _hero.Throw();
-            }
-        }
-
-        public void OnUseHPpotion(InputAction.CallbackContext context) {
-            if (context.canceled) {
-//                _hero.UseHPpotion();
+                _hero.UseInventory();
             }
         }
 
