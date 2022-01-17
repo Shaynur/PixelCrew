@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Diagnostics;
 using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Components.GoBase;
 using Assets.PixelCrew.Components.Health;
@@ -124,7 +123,7 @@ namespace Assets.PixelCrew.Creatures.Hero {
         }
 
         protected override float CalculateJumpVelocity(float yVelocity) {
-            if (!_isGrounded && _allowDoubleJump) {
+            if (!_isGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpUnlock) {
                 DoJumpVfx();
                 _allowDoubleJump = false;
                 return _jumpSpeed;
@@ -215,7 +214,9 @@ namespace Assets.PixelCrew.Creatures.Hero {
         }
 
         public IEnumerator SuperThrowAbility() {
-            if (IsSelectedItemHasTag(ItemTag.Throwable)) {
+            bool isThrowableItem = IsSelectedItemHasTag(ItemTag.Throwable);
+            bool isHasTrowPerk = _session.PerksModel.IsSuperThrowUnlock;
+            if (isThrowableItem && isHasTrowPerk) {
                 var throwableCount = _session.Data.Inventory.Count(SelectedItemId);
                 var possibleCount = SelectedItemId == SwordId ? throwableCount - 1 : throwableCount;
                 var numThrows = Mathf.Min(3, possibleCount);

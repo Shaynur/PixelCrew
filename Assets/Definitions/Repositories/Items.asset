@@ -35,3 +35,12 @@ MonoBehaviour:
   - _id: SpeedUpPotion
     _icon: {fileID: 1185527514606905908, guid: 2c9ab902d75fb1143bd7dd79b14583ce, type: 3}
     _tags: 000000000100000003000000
+  - _id: GreenGem
+    _icon: {fileID: 5489425550423852611, guid: 79c928f0327f6d841928acdd28e09b6d, type: 3}
+    _tags: 00000000
+  - _id: BlueGem
+    _icon: {fileID: 1930839287912332762, guid: 79c928f0327f6d841928acdd28e09b6d, type: 3}
+    _tags: 00000000
+  - _id: RedGem
+    _icon: {fileID: 2271373999398222149, guid: 79c928f0327f6d841928acdd28e09b6d, type: 3}
+    _tags: 00000000

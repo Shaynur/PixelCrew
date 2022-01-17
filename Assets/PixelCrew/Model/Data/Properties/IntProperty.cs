@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace Assets.PixelCrew.Model.Data.Properties
-{
+namespace Assets.PixelCrew.Model.Data.Properties {
+
     [Serializable]
-    public class IntProperty : ObservableProperty<int>
-    {
+    public class IntProperty : ObservableProperty<int> {
     }
 }

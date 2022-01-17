@@ -541,13 +541,9 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8387e30b-b744-4291-a39a-879e18b390e5
     m_ActionName: Hero/Throw[/Keyboard/shift]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: bffb6900-dc9d-4bdb-b5fc-4d171304be45
-    m_ActionName: Hero/UseHPpotion[/Keyboard/h]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Hero
+  m_DefaultActionMap: 27a3cfa3-459d-44e0-a45c-4a2735e78a6e
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &7213589909166006176

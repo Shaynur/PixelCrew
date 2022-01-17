@@ -2,6 +2,7 @@
 using System.Linq;
 using Assets.PixelCrew.Components.LevelManagment;
 using Assets.PixelCrew.Model.Data;
+using Assets.PixelCrew.Model.Models;
 using Assets.PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,9 +13,12 @@ namespace Assets.PixelCrew.Model {
 
         [SerializeField] private PlayerData _data;
         [SerializeField] private string _defaultCheckpoint;
+
         public PlayerData Data => _data;
-        private PlayerData _save;
         public QuickInventoryModel QuickInventory { get; private set; }
+        public PerksModel PerksModel { get; private set; }
+
+        private PlayerData _save;
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         private readonly List<string> _checkpoints = new List<string>();
 
@@ -63,6 +67,9 @@ namespace Assets.PixelCrew.Model {
         private void InitModels() {
             QuickInventory = new QuickInventoryModel(Data);
             _trash.Retain(QuickInventory);
+
+            PerksModel = new PerksModel(_data);
+            _trash.Retain(PerksModel);
         }
 
         private void LoadHud() {

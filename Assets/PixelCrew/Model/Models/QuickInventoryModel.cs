@@ -1,11 +1,12 @@
 ﻿using System;
+using Assets.PixelCrew.Model.Data;
 using Assets.PixelCrew.Model.Data.Properties;
 using Assets.PixelCrew.Model.Definitions;
 using Assets.PixelCrew.Model.Definitions.Repository.Items;
 using Assets.PixelCrew.Utils.Disposables;
 using UnityEngine;
 
-namespace Assets.PixelCrew.Model.Data {
+namespace Assets.PixelCrew.Model.Models {
     public class QuickInventoryModel : IDisposable {
 
         private readonly PlayerData _data;

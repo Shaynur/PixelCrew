@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.PixelCrew.Model.Definitions;
+using Assets.PixelCrew.Model.Definitions.Repository;
 using Assets.PixelCrew.Model.Definitions.Repository.Items;
 using Assets.PixelCrew.Utils.Disposables;
 using UnityEngine;
@@ -10,12 +11,14 @@ namespace Assets.PixelCrew.Model.Data {
 
     [Serializable]
     public class InventoryData {
+
         [SerializeField] private List<InventoryItemData> _inventory = new List<InventoryItemData>();
 
+        public int InventoryCount => _inventoryCount;
+
+        private int _inventoryCount = 0;
         public delegate void OnInventoryChanged(string id, int value);
         public OnInventoryChanged OnChanged;
-        private int _inventoryCount = 0;
-        public int InventoryCount => _inventoryCount;
 
         public IDisposable Subscribe(OnInventoryChanged call) {
             OnChanged += call;
@@ -106,6 +109,22 @@ namespace Assets.PixelCrew.Model.Data {
                 }
             }
             return count;
+        }
+
+        public bool IsEnough(params ItemWithCount[] items) {
+            var joined = new Dictionary<string, int>();
+            foreach (var item in items) {
+                if (joined.ContainsKey(item.ItemId))
+                    joined[item.ItemId] += item.Count;
+                else
+                    joined.Add(item.ItemId, item.Count);
+            }
+            foreach (var kvp in joined) {
+                var count = Count(kvp.Key);
+                if (count < kvp.Value)
+                    return false;
+            }
+            return true;
         }
     }
 
