@@ -257,6 +257,11 @@ MonoBehaviour:
   _mode: 0
   _bound:
     _sentences:
-    - You need a key..
-    - Try to search left side
+    - _valued: You need a key!
+      _icon: {fileID: 0}
+      _side: 0
+    - _valued: Look at right side..
+      _icon: {fileID: 0}
+      _side: 0
+    _type: 0
   _external: {fileID: 0}
