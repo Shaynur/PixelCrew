@@ -1,5 +1,16 @@
 menu_title	menu
 button_start	start
-button_option	options
+button_restart	restart
+button_option	Options
 button_exit	exit
+button_buy	buy
+button_use	use
 selected_language	Selected language: {0}
+button_back	back
+button_locales	language
+label_music	Music:
+label_sfx	Sfx:
+label_price	Price:
+label_pause	Pause
+perk_info_double_jump	This is Double Jump perk!
+perk_info_throw	This is Super Throw perk!

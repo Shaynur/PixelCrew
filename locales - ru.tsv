@@ -1,0 +1,16 @@
+menu_title	меню
+button_start	начать
+button_restart	рестарт
+button_option	Настройки
+button_exit	выход
+button_buy	купить
+button_use	использовать
+selected_language	Выбран язык: {0}
+button_back	назад
+button_locales	язык
+label_music	Музыка:
+label_sfx	Звуки:
+label_price	Цена:
+label_pause	Пауза
+perk_info_double_jump	Умение Двойной Прыжок!
+perk_info_throw	Умение Бросок Предметов!

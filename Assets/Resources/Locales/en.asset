@@ -18,13 +18,31 @@ MonoBehaviour:
     Value: "menu\r"
   - Key: button_start
     Value: "start\r"
+  - Key: button_restart
+    Value: "restart\r"
   - Key: button_option
-    Value: "options\r"
+    Value: "Options\r"
   - Key: button_exit
     Value: "exit\r"
+  - Key: button_buy
+    Value: "buy\r"
+  - Key: button_use
+    Value: "use\r"
   - Key: selected_language
     Value: "Selected language: {0}\r"
   - Key: button_back
     Value: "back\r"
   - Key: button_locales
-    Value: language
+    Value: "language\r"
+  - Key: label_music
+    Value: "Music:\r"
+  - Key: label_sfx
+    Value: "Sfx:\r"
+  - Key: label_price
+    Value: "Price:\r"
+  - Key: label_pause
+    Value: "Pause\r"
+  - Key: perk_info_double_jump
+    Value: "This is Double Jump perk!\r"
+  - Key: perk_info_throw
+    Value: This is Super Throw perk!

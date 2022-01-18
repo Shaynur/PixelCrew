@@ -19,6 +19,10 @@ namespace Assets.PixelCrew.UI.Windows.InGameMenu {
             WindowUtils.CreateWindow("UI/SettingsWindow");
         }
 
+        public void OnLanguages() {
+            WindowUtils.CreateWindow("UI/LocalizationWindow");
+        }
+
         public void OnExit() {
             SceneManager.LoadScene("MainMenu");
             var session = FindObjectOfType<GameSession>();

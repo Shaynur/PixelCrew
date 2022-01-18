@@ -1996,6 +1996,7 @@ GameObject:
   - component: {fileID: 6126598812901056086}
   - component: {fileID: 6126598812901056085}
   - component: {fileID: 6126598812901056084}
+  - component: {fileID: 5841628488638851953}
   m_Layer: 5
   m_Name: PressedText
   m_TagString: Untagged
@@ -2063,6 +2064,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: USE
+--- !u!114 &5841628488638851953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126598812901056073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ac09c1e6c39f1478c7ece5f37ff4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_use
+  _capitalize: 1
 --- !u!1 &6126598812925111351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,6 +2290,7 @@ GameObject:
   - component: {fileID: 6126598813193573327}
   - component: {fileID: 6126598813193573322}
   - component: {fileID: 6126598813193573325}
+  - component: {fileID: 1225255470145032141}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -2342,6 +2358,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: BUY
+--- !u!114 &1225255470145032141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126598813193573326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ac09c1e6c39f1478c7ece5f37ff4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_buy
+  _capitalize: 1
 --- !u!1 &6126598813268515704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,6 +2458,7 @@ GameObject:
   - component: {fileID: 6126598813294603068}
   - component: {fileID: 6126598813294603067}
   - component: {fileID: 6126598813294603066}
+  - component: {fileID: 3584257888623890770}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -2495,6 +2526,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: ' USE'
+--- !u!114 &3584257888623890770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126598813294603071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ac09c1e6c39f1478c7ece5f37ff4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_use
+  _capitalize: 1
 --- !u!1 &6126598813399708827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2719,6 +2764,7 @@ GameObject:
   - component: {fileID: 6126598813713321156}
   - component: {fileID: 6126598813713321155}
   - component: {fileID: 6126598813713321154}
+  - component: {fileID: 4053449497608067678}
   m_Layer: 5
   m_Name: PriceLabel
   m_TagString: Untagged
@@ -2786,6 +2832,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Price:'
+--- !u!114 &4053449497608067678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126598813713321159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ac09c1e6c39f1478c7ece5f37ff4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: label_price
+  _capitalize: 0
 --- !u!1 &6126598813721282851
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,6 +3213,7 @@ GameObject:
   - component: {fileID: 6126598814006305757}
   - component: {fileID: 6126598814006305752}
   - component: {fileID: 6126598814006305755}
+  - component: {fileID: 8940462470870415881}
   m_Layer: 5
   m_Name: PressedText
   m_TagString: Untagged
@@ -3220,6 +3281,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: START
+--- !u!114 &8940462470870415881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126598814006305756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ac09c1e6c39f1478c7ece5f37ff4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_buy
+  _capitalize: 1
 --- !u!1 &6126598814009863419
 GameObject:
   m_ObjectHideFlags: 0

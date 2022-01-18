@@ -8573,7 +8573,7 @@ MonoBehaviour:
       _used:
         _value: 
       _unlocked: []
-  _defaultCheckpoint: level1-checkpoint3
+  _defaultCheckpoint: level1-startPoint
 --- !u!4 &1430526775
 Transform:
   m_ObjectHideFlags: 0

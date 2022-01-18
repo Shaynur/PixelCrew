@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -14,6 +15,24 @@ namespace Assets.PixelCrew.Model.Definitions.Localization {
 
         private UnityWebRequest _request;
 
+        [ContextMenu("Update locale")]
+        public void UpdateLocale() {
+            if (_request != null) return;
+            _request = UnityWebRequest.Get(_url);
+            _request.SendWebRequest().completed += OnDataLoaded;
+        }
+
+#if UNITY_EDITOR
+        [ContextMenu("Update locale from file")]
+        public void UpdateLocaleFromFile() {
+            var path = UnityEditor.EditorUtility.OpenFilePanel("Choose locale file", "", "tsv");
+            if (path.Length != 0) {
+                var data = File.ReadAllText(path);
+                ParseData(data);
+            }
+        }
+#endif
+
         public Dictionary<string, string> GetData() {
             var dictionary = new Dictionary<string, string>();
             foreach (var localeItem in _localeItems) {
@@ -22,20 +41,18 @@ namespace Assets.PixelCrew.Model.Definitions.Localization {
             return dictionary;
         }
 
-        [ContextMenu("Update locale")]
-        public void UpdateLocale() {
-            if (_request != null) return;
-            _request = UnityWebRequest.Get(_url);
-            _request.SendWebRequest().completed += OnDataLoaded;
-        }
-
         private void OnDataLoaded(AsyncOperation operation) {
             if (operation.isDone) {
-                var rows = _request.downloadHandler.text.Split('\n');
-                _localeItems.Clear();
-                foreach (var row in rows) {
-                    AddLocaleItem(row);
-                }
+                var data = _request.downloadHandler.text;
+                ParseData(data);
+            }
+        }
+
+        private void ParseData(string data) {
+            var rows = data.Split('\n');
+            _localeItems.Clear();
+            foreach (var row in rows) {
+                AddLocaleItem(row);
             }
         }
 
