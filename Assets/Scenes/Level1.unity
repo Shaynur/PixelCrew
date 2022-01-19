@@ -11514,6 +11514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 8141370481336145401}
+  _saveInDestroyedList: 0
 --- !u!1 &8141370481336145401
 GameObject:
   m_ObjectHideFlags: 0

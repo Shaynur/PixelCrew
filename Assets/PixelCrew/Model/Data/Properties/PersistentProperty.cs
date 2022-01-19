@@ -1,4 +1,5 @@
 ﻿namespace Assets.PixelCrew.Model.Data.Properties {
+
     public abstract class PersistentProperty<TPropertyType> : ObservableProperty<TPropertyType> {
 
         protected TPropertyType _stored;

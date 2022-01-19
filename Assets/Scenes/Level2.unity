@@ -2646,7 +2646,7 @@ PrefabInstance:
     - target: {fileID: 7803593179844173497, guid: 64b5ef56874aed24fbb5eb437dae40f1,
         type: 3}
       propertyPath: m_Name
-      value: DestructableBarrel
+      value: DestructableBarrel (6)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64b5ef56874aed24fbb5eb437dae40f1, type: 3}
@@ -5675,8 +5675,8 @@ MonoBehaviour:
   _data:
     _inventory:
       _inventory:
-      - Id: PearlProjectile
-        Value: 10
+      - Id: Sword
+        Value: 1000
     Hp:
       _value: 10
     Perks:

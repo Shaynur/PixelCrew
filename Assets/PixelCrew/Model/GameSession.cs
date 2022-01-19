@@ -29,7 +29,7 @@ namespace Assets.PixelCrew.Model {
                 Destroy(gameObject);
             }
             else {
-                SavePlayerData();
+                SavePlayerData(); // ??
                 InitModels();
                 DontDestroyOnLoad(this);
                 StartSession(_defaultCheckpoint);
@@ -48,9 +48,10 @@ namespace Assets.PixelCrew.Model {
             foreach (var checkpoint in checkpoints) {
                 if (checkpoint.Id == lastCheckpoint) {
                     checkpoint.SpawnHero();
-                    break;
+                    return;
                 }
             }
+            checkpoints.First(c => c.Id == _defaultCheckpoint).SpawnHero();
         }
 
         internal void SetChecked(string id) {
@@ -98,6 +99,17 @@ namespace Assets.PixelCrew.Model {
 
         private void OnDestroy() {
             _trash.Dispose();
+        }
+
+        private List<string> _removedItems = new List<string>();
+
+        public bool RestoreState(string itemId) {
+            return _removedItems.Contains(itemId);
+        }
+
+        public void StoreState(string itemId) {
+            if (!_removedItems.Contains(itemId))
+                _removedItems.Add(itemId);
         }
     }
 }

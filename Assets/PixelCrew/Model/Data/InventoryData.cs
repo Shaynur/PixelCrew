@@ -47,7 +47,7 @@ namespace Assets.PixelCrew.Model.Data {
             item.Value += value;
             _inventoryCount += value;
             OnChanged?.Invoke(id, Count(id));
-            Debug.Log("Inventory count = " + _inventoryCount);
+            //Debug.Log("Inventory count = " + _inventoryCount);
             return true;
         }
 
@@ -70,7 +70,7 @@ namespace Assets.PixelCrew.Model.Data {
                 _inventoryCount++;
                 OnChanged?.Invoke(id, Count(id));
             }
-            Debug.Log("Inventory count = " + _inventoryCount);
+            //Debug.Log("Inventory count = " + _inventoryCount);
         }
 
         public void Remove(string id, int value) {
@@ -89,7 +89,7 @@ namespace Assets.PixelCrew.Model.Data {
                 _inventory.Remove(item);
             }
             OnChanged?.Invoke(id, Count(id));
-            Debug.Log("Inventory count = " + _inventoryCount);
+            //Debug.Log("Inventory count = " + _inventoryCount);
         }
 
         private InventoryItemData GetItem(string id) {
