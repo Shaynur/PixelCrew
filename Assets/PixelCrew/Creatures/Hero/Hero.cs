@@ -258,12 +258,28 @@ namespace Assets.PixelCrew.Creatures.Hero {
             var throwableId = SelectedItemId;
             var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
             _throwSpawner.SetPrefab(throwableDef.Projectile);
-            _throwSpawner.Spawn();
+            var instance = _throwSpawner.SpawnInstance();
+            ApplyRangeDamageStat(instance);
             _session.Data.Inventory.Remove(throwableId, 1);
         }
 
+        private void ApplyRangeDamageStat(GameObject projectile) {
+            var hpModify = projectile.GetComponent<ModifyHealthComponent>();
+            var rangeDamageValue = (int)_session.StatsModel.GetValue(StatId.RangeDamage);
+            rangeDamageValue = ModifyDamageByCrit(rangeDamageValue);
+            hpModify.SetHpDelta(-rangeDamageValue);
+        }
+
+        private int ModifyDamageByCrit(int damage) {
+            var critChance = _session.StatsModel.GetValue(StatId.CriticalDamage);
+            if (Random.value * 100 <= critChance) {
+                return damage * 2;
+            }
+            return damage;
+        }
+
         public void UsePerk() {
-            if(_session.PerksModel.IsShieldSupported) {
+            if (_session.PerksModel.IsShieldSupported) {
                 _shield.Use();
                 _session.PerksModel.Cooldown.Reset();
             }

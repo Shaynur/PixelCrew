@@ -30,6 +30,7 @@ namespace Assets.PixelCrew.Model.Definitions.Player {
     public enum StatId {
         Hp,
         Speed,
-        RangeDamage
+        RangeDamage,
+        CriticalDamage
     }
 }

@@ -13,6 +13,10 @@ namespace Assets.PixelCrew.Components.GoBase
         [ContextMenu("Spawn")]
         public void Spawn()
         {
+            SpawnInstance();
+        }
+
+        public GameObject SpawnInstance() {
             GameObject instantiate;
             if (_spawnOnParent)
             {
@@ -24,6 +28,7 @@ namespace Assets.PixelCrew.Components.GoBase
             }
             instantiate.transform.localScale = _target.lossyScale;
             instantiate.SetActive(true);
+            return instantiate;
         }
 
         public void SetPrefab(GameObject prefab) {
