@@ -49,6 +49,9 @@ TagManager:
   - name: Background
     uniqueID: 84522749
     locked: 0
+  - name: TileMap
+    uniqueID: 2423865105
+    locked: 0
   - name: Level
     uniqueID: 3498444839
     locked: 0

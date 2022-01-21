@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -248,8 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3304927a42545cc4bbde169424efd41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 2
   _health: 2
+  _immune: 0
   _onHeal:
     m_PersistentCalls:
       m_Calls: []
@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 6351025332701808793}
+  _saveInDestroyedList: 0
 --- !u!1 &6351025333087635660
 GameObject:
   m_ObjectHideFlags: 0

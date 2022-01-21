@@ -108,6 +108,11 @@ PrefabInstance:
       propertyPath: _layer.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5240324510700927974, guid: adcdad748e5f1bd4e80ae9b84cac2c0d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7119991247800390666, guid: adcdad748e5f1bd4e80ae9b84cac2c0d,
         type: 3}
       propertyPath: m_Enabled
@@ -121,7 +126,7 @@ PrefabInstance:
     - target: {fileID: 7213589909166006200, guid: adcdad748e5f1bd4e80ae9b84cac2c0d,
         type: 3}
       propertyPath: m_Name
-      value: Sharky Platform
+      value: Sharky Platform Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7213589909166006200, guid: adcdad748e5f1bd4e80ae9b84cac2c0d,
         type: 3}
