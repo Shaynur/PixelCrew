@@ -5,6 +5,7 @@ using Assets.PixelCrew.Components.Health;
 using Assets.PixelCrew.Model;
 using Assets.PixelCrew.Model.Data;
 using Assets.PixelCrew.Model.Definitions;
+using Assets.PixelCrew.Model.Definitions.Player;
 using Assets.PixelCrew.Model.Definitions.Repository;
 using Assets.PixelCrew.Model.Definitions.Repository.Items;
 using Assets.PixelCrew.Utils;
@@ -12,7 +13,9 @@ using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Assets.PixelCrew.Creatures.Hero {
+
     public class Hero : Creature, ICanAddInInventory {
+
         [SerializeField] private CheckCircleOverlap _interactionCheck;
         [SerializeField] private LayerCheck _wallCheck;
 
@@ -44,41 +47,54 @@ namespace Assets.PixelCrew.Creatures.Hero {
             }
         }
 
-
         protected override void Awake() {
             base.Awake();
             _defaultGravityScale = Rigidbody.gravityScale;
         }
 
-        public void NextItem() {
-            _session.QuickInventory.SetNextItem();
-        }
-
         private void Start() {
             _session = FindObjectOfType<GameSession>();
-            _session.Data.Inventory.OnChanged += OnInventoryChanged;
             _health = GetComponent<HealthComponent>();
+
+            _session.Data.Inventory.OnChanged += OnInventoryChanged;
+            _session.StatsModel.OnUpgraded += OnHeroUpgraded;
+
             _health.SetHealth(_session.Data.Hp.Value);
 
             UpdateHeroWeapon();
             StartCoroutine(FadeIn());
         }
 
-        public void OnHealthChanged(int newHealth) {
-            _session.Data.Hp.Value = Mathf.Min(newHealth, DefsFacade.I.Player.MaxHealth);
-            if (newHealth > DefsFacade.I.Player.MaxHealth) {
-                _health.SetHealth(DefsFacade.I.Player.MaxHealth);
+        private void OnHeroUpgraded(StatId stateId) {
+            switch (stateId) {
+                case StatId.Hp:
+                    var health = (int)_session.StatsModel.GetValue(stateId);
+                    _health.SetHealth(health);
+                    break;
+                case StatId.Speed:
+                    break;
+                case StatId.RangeDamage:
+                    break;
             }
         }
 
-        private void OnDestroy() {
-            _session.Data.Inventory.OnChanged -= OnInventoryChanged;
+        public void OnHealthChanged(int newHealth) {
+            var maxHealth = (int)_session.StatsModel.GetValue(StatId.Hp);
+            if (newHealth > maxHealth) {
+                newHealth = maxHealth;
+                _health.SetHealth(newHealth);
+            }
+            _session.Data.Hp.Value = newHealth;
         }
 
         private void OnInventoryChanged(string id, int value) {
             if (id == SwordId) {
                 UpdateHeroWeapon();
             }
+        }
+
+        public void NextItem() {
+            _session.QuickInventory.SetNextItem();
         }
 
         private void UpdateHeroWeapon() {
@@ -168,12 +184,12 @@ namespace Assets.PixelCrew.Creatures.Hero {
 
         private Cooldown _speedUpCooldown = new Cooldown();
         private float _additionalSpeed;
-
         protected override float CalculateSpeed() {
             if (_speedUpCooldown.IsReady) {
                 _additionalSpeed = 0f;
             }
-            return base.CalculateSpeed() + _additionalSpeed;
+            var defaultSpeed = _session.StatsModel.GetValue(StatId.Speed);
+            return defaultSpeed + _additionalSpeed;
         }
 
         public override void Attack() {
@@ -196,7 +212,7 @@ namespace Assets.PixelCrew.Creatures.Hero {
             var potion = DefsFacade.I.Potions.Get(SelectedItemId);
             switch (potion.Effect) {
                 case Effect.AddHp:
-                    _session.Data.Hp.Value += (int)potion.Value;
+                    _health.ModifyHealth((int)potion.Value);
                     break;
                 case Effect.SpeedUp:
                     _speedUpCooldown.Value = _speedUpCooldown.TimeLasts + potion.Time;
@@ -240,6 +256,11 @@ namespace Assets.PixelCrew.Creatures.Hero {
             _throwSpawner.SetPrefab(throwableDef.Projectile);
             _throwSpawner.Spawn();
             _session.Data.Inventory.Remove(throwableId, 1);
+        }
+
+        private void OnDestroy() {
+            _session.Data.Inventory.OnChanged -= OnInventoryChanged;
+            _session.StatsModel.OnUpgraded -= OnHeroUpgraded;
         }
     }
 }

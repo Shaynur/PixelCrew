@@ -14,3 +14,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventorySize: 1000
   _maxHealth: 10
+  _stats:
+  - _name: stat_health
+    _id: 0
+    _icon: {fileID: 21300000, guid: 912d08e4abf98d844adab89cf3b62f4e, type: 3}
+    _levels:
+    - _value: 5
+      _price:
+        _itemId: Coin
+        _count: 0
+    - _value: 10
+      _price:
+        _itemId: Coin
+        _count: 10
+    - _value: 20
+      _price:
+        _itemId: Coin
+        _count: 30
+    - _value: 40
+      _price:
+        _itemId: Coin
+        _count: 100
+  - _name: stat_speed
+    _id: 1
+    _icon: {fileID: 21300000, guid: bd581da132d463f4da6a90f3f5f356be, type: 3}
+    _levels:
+    - _value: 4
+      _price:
+        _itemId: Coin
+        _count: 0
+    - _value: 5
+      _price:
+        _itemId: Coin
+        _count: 30
+    - _value: 6
+      _price:
+        _itemId: Coin
+        _count: 100
+  - _name: stat_range_damage
+    _id: 2
+    _icon: {fileID: 21300000, guid: 033449ab7983e374f81b406604ea19e6, type: 3}
+    _levels:
+    - _value: 1
+      _price:
+        _itemId: Coin
+        _count: 0
+    - _value: 2
+      _price:
+        _itemId: Coin
+        _count: 10
+    - _value: 3
+      _price:
+        _itemId: Coin
+        _count: 20
+    - _value: 4
+      _price:
+        _itemId: Coin
+        _count: 50
+    - _value: 5
+      _price:
+        _itemId: Coin
+        _count: 200

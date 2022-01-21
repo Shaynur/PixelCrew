@@ -3,6 +3,7 @@
 namespace Assets.PixelCrew.UI.Windows {
 
     public class AnimatedWindow : MonoBehaviour {
+
         private Animator _animator;
         private static readonly int Show = Animator.StringToHash("Show");
         private static readonly int Hide = Animator.StringToHash("Hide");

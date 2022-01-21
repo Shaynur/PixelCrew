@@ -27,6 +27,8 @@ namespace Assets.PixelCrew.Model.Data.Properties {
         public virtual TPropertyType Value {
             get => _value;
             set {
+                //if (_value == null)
+                //    return;
                 var isSame = _value.Equals(value);
                 if (isSame) return;
                 var oldValue = _value;

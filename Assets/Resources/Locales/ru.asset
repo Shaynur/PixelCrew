@@ -28,6 +28,8 @@ MonoBehaviour:
     Value: "\u043A\u0443\u043F\u0438\u0442\u044C\r"
   - Key: button_use
     Value: "\u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C\r"
+  - Key: button_upgrade
+    Value: "\u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C\r"
   - Key: selected_language
     Value: "\u0412\u044B\u0431\u0440\u0430\u043D \u044F\u0437\u044B\u043A: {0}\r"
   - Key: button_back
@@ -47,4 +49,10 @@ MonoBehaviour:
       \u041F\u0440\u044B\u0436\u043E\u043A!\r"
   - Key: perk_info_throw
     Value: "\u0423\u043C\u0435\u043D\u0438\u0435 \u0411\u0440\u043E\u0441\u043E\u043A
-      \u041F\u0440\u0435\u0434\u043C\u0435\u0442\u043E\u0432!"
+      \u041F\u0440\u0435\u0434\u043C\u0435\u0442\u043E\u0432!\r"
+  - Key: stat_health
+    Value: "\u0417\u0434\u043E\u0440\u043E\u0432\u044C\u0435:\r"
+  - Key: stat_speed
+    Value: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C:\r"
+  - Key: stat_range_damage
+    Value: "\u0411\u0440\u043E\u0441\u043E\u043A:"

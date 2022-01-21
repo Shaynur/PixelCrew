@@ -2,6 +2,8 @@
 using System.Linq;
 using Assets.PixelCrew.Components.LevelManagment;
 using Assets.PixelCrew.Model.Data;
+using Assets.PixelCrew.Model.Data.Properties;
+using Assets.PixelCrew.Model.Definitions.Player;
 using Assets.PixelCrew.Model.Models;
 using Assets.PixelCrew.Utils.Disposables;
 using UnityEngine;
@@ -17,6 +19,7 @@ namespace Assets.PixelCrew.Model {
         public PlayerData Data => _data;
         public QuickInventoryModel QuickInventory { get; private set; }
         public PerksModel PerksModel { get; private set; }
+        public StatsModel StatsModel { get; private set; }
 
         private PlayerData _save;
         private readonly CompositeDisposable _trash = new CompositeDisposable();
@@ -71,6 +74,11 @@ namespace Assets.PixelCrew.Model {
 
             PerksModel = new PerksModel(_data);
             _trash.Retain(PerksModel);
+
+            StatsModel = new StatsModel(_data);
+            _trash.Retain(StatsModel);
+
+            _data.Hp.Value = (int)StatsModel.GetValue(StatId.Hp);
         }
 
         private void LoadHud() {

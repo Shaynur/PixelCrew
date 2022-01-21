@@ -1,4 +1,5 @@
-﻿using Assets.PixelCrew.Model.Definitions.Repository;
+﻿using Assets.PixelCrew.Model.Definitions.Player;
+using Assets.PixelCrew.Model.Definitions.Repository;
 using Assets.PixelCrew.Model.Definitions.Repository.Items;
 using UnityEngine;
 

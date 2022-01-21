@@ -28,6 +28,8 @@ MonoBehaviour:
     Value: "buy\r"
   - Key: button_use
     Value: "use\r"
+  - Key: button_upgrade
+    Value: "level up\r"
   - Key: selected_language
     Value: "Selected language: {0}\r"
   - Key: button_back
@@ -45,4 +47,10 @@ MonoBehaviour:
   - Key: perk_info_double_jump
     Value: "This is Double Jump perk!\r"
   - Key: perk_info_throw
-    Value: This is Super Throw perk!
+    Value: "This is Super Throw perk!\r"
+  - Key: stat_health
+    Value: "Health:\r"
+  - Key: stat_speed
+    Value: "Speed:\r"
+  - Key: stat_range_damage
+    Value: 'Range Damage:'

@@ -272,7 +272,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 24665938}
-  - component: {fileID: 24665939}
   m_Layer: 0
   m_Name: container
   m_TagString: Untagged
@@ -298,20 +297,6 @@ Transform:
   m_Father: {fileID: 697911279}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &24665939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24665937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2ae803e2b521347a09bd9204123665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _effectValue: 0.1
-  _followTarget: {fileID: 243663774}
 --- !u!1001 &39524374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4654,7 +4639,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 325520971}
-  - component: {fileID: 325520972}
   m_Layer: 0
   m_Name: container
   m_TagString: Untagged
@@ -4677,20 +4661,6 @@ Transform:
   m_Father: {fileID: 1881906030}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &325520972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325520970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2ae803e2b521347a09bd9204123665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _effectValue: 0.5
-  _followTarget: {fileID: 243663774}
 --- !u!1001 &370151972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5746,6 +5716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 697911279}
   - component: {fileID: 697911281}
+  - component: {fileID: 697911280}
   m_Layer: 0
   m_Name: clouds3
   m_TagString: Untagged
@@ -5768,6 +5739,20 @@ Transform:
   m_Father: {fileID: 2086631191}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &697911280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697911278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2ae803e2b521347a09bd9204123665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effectValue: 0.1
+  _followTarget: {fileID: 243663774}
 --- !u!114 &697911281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6770,7 +6755,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1075890338}
-  - component: {fileID: 1075890339}
   m_Layer: 0
   m_Name: container
   m_TagString: Untagged
@@ -6795,20 +6779,6 @@ Transform:
   m_Father: {fileID: 1626846932}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1075890339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1075890337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2ae803e2b521347a09bd9204123665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _effectValue: 0.3
-  _followTarget: {fileID: 243663774}
 --- !u!4 &1095264371 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9001867881550009520, guid: fdabfd988905ea24a8abc91b0325580d,
@@ -8559,8 +8529,8 @@ MonoBehaviour:
   _data:
     _inventory:
       _inventory:
-      - Id: SmallHealthPotion
-        Value: 1
+      - Id: Coin
+        Value: 1000
       - Id: Sword
         Value: 10
       - Id: SpeedUpPotion
@@ -8991,6 +8961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1626846932}
   - component: {fileID: 1626846933}
+  - component: {fileID: 1626846934}
   m_Layer: 0
   m_Name: clouds2
   m_TagString: Untagged
@@ -9027,6 +8998,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 243663773}
   _container: {fileID: 1075890338}
+--- !u!114 &1626846934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626846931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2ae803e2b521347a09bd9204123665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effectValue: 0.3
+  _followTarget: {fileID: 243663774}
 --- !u!114 &1632736515 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4915569157589590652, guid: 3231a8075b971ed4c82ab319feeee906,
@@ -9469,6 +9454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1881906030}
   - component: {fileID: 1881906032}
+  - component: {fileID: 1881906031}
   m_Layer: 0
   m_Name: clouds1
   m_TagString: Untagged
@@ -9491,6 +9477,20 @@ Transform:
   m_Father: {fileID: 2086631191}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1881906031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881906029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2ae803e2b521347a09bd9204123665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effectValue: 0.5
+  _followTarget: {fileID: 243663774}
 --- !u!114 &1881906032
 MonoBehaviour:
   m_ObjectHideFlags: 0
