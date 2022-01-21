@@ -2,6 +2,7 @@
 using Assets.PixelCrew.Model.Data;
 using Assets.PixelCrew.Utils;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.PixelCrew.UI.Hud.Dialogs {
 
@@ -21,6 +22,7 @@ namespace Assets.PixelCrew.UI.Hud.Dialogs {
         protected virtual DialogContent CurrentContent => _content;
         protected Sentence CurrentSentence => _data.Sentences[_currentSentence];
 
+        private UnityEvent _onComplete;
         private DialogData _data;
         private int _currentSentence;
         private AudioSource _sfxSource;
@@ -31,7 +33,8 @@ namespace Assets.PixelCrew.UI.Hud.Dialogs {
             _sfxSource = AudioUtilits.FindSfxSource();
         }
 
-        public virtual void ShowDialog(DialogData data) {
+        public virtual void ShowDialog(DialogData data, UnityEvent onComplete) {
+            _onComplete = onComplete;
             _data = data;
             _currentSentence = 0;
             CurrentContent.Text.text = string.Empty;
@@ -65,6 +68,7 @@ namespace Assets.PixelCrew.UI.Hud.Dialogs {
             var isDialogComplete = _currentSentence >= _data.Sentences.Length;
             if (isDialogComplete) {
                 HideDialogBox();
+                _onComplete?.Invoke();
             }
             else {
                 OnStartDialogAnimation();

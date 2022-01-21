@@ -2,7 +2,6 @@
 using System.Linq;
 using Assets.PixelCrew.Components.LevelManagment;
 using Assets.PixelCrew.Model.Data;
-using Assets.PixelCrew.Model.Data.Properties;
 using Assets.PixelCrew.Model.Definitions.Player;
 using Assets.PixelCrew.Model.Models;
 using Assets.PixelCrew.Utils.Disposables;
@@ -109,7 +108,7 @@ namespace Assets.PixelCrew.Model {
             _trash.Dispose();
         }
 
-        private List<string> _removedItems = new List<string>();
+        private readonly List<string> _removedItems = new List<string>();
 
         public bool RestoreState(string itemId) {
             return _removedItems.Contains(itemId);

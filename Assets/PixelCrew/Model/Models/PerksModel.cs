@@ -2,6 +2,7 @@
 using Assets.PixelCrew.Model.Data;
 using Assets.PixelCrew.Model.Data.Properties;
 using Assets.PixelCrew.Model.Definitions;
+using Assets.PixelCrew.Utils;
 using Assets.PixelCrew.Utils.Disposables;
 
 namespace Assets.PixelCrew.Model.Models {
@@ -9,11 +10,13 @@ namespace Assets.PixelCrew.Model.Models {
     public class PerksModel : IDisposable {
 
         public string Used => _data.Perks.Used.Value;
-        public bool IsSuperThrowUnlock => _data.Perks.Used.Value == "super-throw";
-        public bool IsDoubleJumpUnlock => _data.Perks.Used.Value == "double-jump";
+        public bool IsSuperThrowSupported => _data.Perks.Used.Value == "super-throw" && Cooldown.IsReady;
+        public bool IsDoubleJumpSupported => _data.Perks.Used.Value == "double-jump" && Cooldown.IsReady;
+        public bool IsShieldSupported => _data.Perks.Used.Value == "shield" && Cooldown.IsReady;
 
         public event Action OnChanged;
         public readonly StringProperty InterfaceSelection = new StringProperty();
+        public readonly Cooldown Cooldown = new Cooldown();
         private readonly PlayerData _data;
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
@@ -39,7 +42,9 @@ namespace Assets.PixelCrew.Model.Models {
             }
         }
 
-        internal void UsePerk(string id) {
+        internal void SelectPerk(string id) {
+            var perkDef = DefsFacade.I.Perks.Get(id);
+            Cooldown.Value = perkDef.Cooldown;
             _data.Perks.Used.Value = id;
         }
 

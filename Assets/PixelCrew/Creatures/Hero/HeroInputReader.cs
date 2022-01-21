@@ -35,5 +35,11 @@ namespace Assets.PixelCrew.Creatures.Hero {
                 _hero.NextItem();
             }
         }
+
+        public void OnUsePerk(InputAction.CallbackContext context) {
+            if (context.canceled) {
+                _hero.UsePerk();
+            }
+        }
     }
 }

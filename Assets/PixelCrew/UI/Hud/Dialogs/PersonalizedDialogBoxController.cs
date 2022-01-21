@@ -1,5 +1,6 @@
 ﻿using Assets.PixelCrew.Model.Data;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.PixelCrew.UI.Hud.Dialogs {
     public class PersonalizedDialogBoxController : DialogBoxController {
@@ -13,8 +14,8 @@ namespace Assets.PixelCrew.UI.Hud.Dialogs {
             base.OnStartDialogAnimation();
         }
 
-        public override void ShowDialog(DialogData data) {
-            base.ShowDialog(data);
+        public override void ShowDialog(DialogData data, UnityEvent onComplete) {
+            base.ShowDialog(data, onComplete);
             SetContentsActivity();
         }
 

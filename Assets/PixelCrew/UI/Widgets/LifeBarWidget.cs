@@ -16,8 +16,8 @@ namespace Assets.PixelCrew.UI.Widgets {
                 _hp = GetComponentInParent<HealthComponent>();
             }
             _maxHp = _hp.Health;
-            _trash.Retain(_hp._onDie.Subscribe(OnDie));
-            _trash.Retain(_hp._onChange.Subscribe(OnHpChanged));
+            _trash.Retain(_hp.OnDie.Subscribe(OnDie));
+            _trash.Retain(_hp.OnChange.Subscribe(OnHpChanged));
         }
 
         private void OnDie() {

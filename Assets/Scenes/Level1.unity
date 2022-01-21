@@ -1230,6 +1230,9 @@ MonoBehaviour:
       _side: 1
     _type: 1
   _external: {fileID: 0}
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &257541269
 MonoBehaviour:
   m_ObjectHideFlags: 0

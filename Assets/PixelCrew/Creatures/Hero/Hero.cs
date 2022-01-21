@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Assets.PixelCrew.Components;
 using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Components.GoBase;
 using Assets.PixelCrew.Components.Health;
@@ -24,6 +25,7 @@ namespace Assets.PixelCrew.Creatures.Hero {
         [SerializeField] private AnimatorController _disarmed;
         [SerializeField] private ParticleSystem _hitParticles;
         [SerializeField] private SpawnComponent _throwSpawner;
+        [SerializeField] private ShieldComponent _shield;
 
 
         private bool _allowDoubleJump;
@@ -139,9 +141,10 @@ namespace Assets.PixelCrew.Creatures.Hero {
         }
 
         protected override float CalculateJumpVelocity(float yVelocity) {
-            if (!_isGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpUnlock) {
-                DoJumpVfx();
+            if (!_isGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpSupported) {
+                _session.PerksModel.Cooldown.Reset();
                 _allowDoubleJump = false;
+                DoJumpVfx();
                 return _jumpSpeed;
             }
             return base.CalculateJumpVelocity(yVelocity);
@@ -182,7 +185,7 @@ namespace Assets.PixelCrew.Creatures.Hero {
             }
         }
 
-        private Cooldown _speedUpCooldown = new Cooldown();
+        private readonly Cooldown _speedUpCooldown = new Cooldown();
         private float _additionalSpeed;
         protected override float CalculateSpeed() {
             if (_speedUpCooldown.IsReady) {
@@ -215,7 +218,7 @@ namespace Assets.PixelCrew.Creatures.Hero {
                     _health.ModifyHealth((int)potion.Value);
                     break;
                 case Effect.SpeedUp:
-                    _speedUpCooldown.Value = _speedUpCooldown.TimeLasts + potion.Time;
+                    _speedUpCooldown.Value = _speedUpCooldown.RemainingTime + potion.Time;
                     _additionalSpeed = Mathf.Max(potion.Value, _additionalSpeed);
                     _speedUpCooldown.Reset();
                     break;
@@ -231,11 +234,12 @@ namespace Assets.PixelCrew.Creatures.Hero {
 
         public IEnumerator SuperThrowAbility() {
             bool isThrowableItem = IsSelectedItemHasTag(ItemTag.Throwable);
-            bool isHasTrowPerk = _session.PerksModel.IsSuperThrowUnlock;
+            bool isHasTrowPerk = _session.PerksModel.IsSuperThrowSupported;
             if (isThrowableItem && isHasTrowPerk) {
                 var throwableCount = _session.Data.Inventory.Count(SelectedItemId);
                 var possibleCount = SelectedItemId == SwordId ? throwableCount - 1 : throwableCount;
                 var numThrows = Mathf.Min(3, possibleCount);
+                _session.PerksModel.Cooldown.Reset();
                 for (int i = 0; i < numThrows; i++) {
                     TryThrowItem();
                     yield return new WaitForSeconds(0.3f);
@@ -256,6 +260,13 @@ namespace Assets.PixelCrew.Creatures.Hero {
             _throwSpawner.SetPrefab(throwableDef.Projectile);
             _throwSpawner.Spawn();
             _session.Data.Inventory.Remove(throwableId, 1);
+        }
+
+        public void UsePerk() {
+            if(_session.PerksModel.IsShieldSupported) {
+                _shield.Use();
+                _session.PerksModel.Cooldown.Reset();
+            }
         }
 
         private void OnDestroy() {

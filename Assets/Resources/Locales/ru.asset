@@ -50,6 +50,8 @@ MonoBehaviour:
   - Key: perk_info_throw
     Value: "\u0423\u043C\u0435\u043D\u0438\u0435 \u0411\u0440\u043E\u0441\u043E\u043A
       \u041F\u0440\u0435\u0434\u043C\u0435\u0442\u043E\u0432!\r"
+  - Key: perk_info_shield
+    Value: "\u0423\u043C\u0435\u043D\u0438\u0435 \u0417\u0430\u0448\u0438\u0442\u0430!\r"
   - Key: stat_health
     Value: "\u0417\u0434\u043E\u0440\u043E\u0432\u044C\u0435:\r"
   - Key: stat_speed

@@ -48,6 +48,8 @@ MonoBehaviour:
     Value: "This is Double Jump perk!\r"
   - Key: perk_info_throw
     Value: "This is Super Throw perk!\r"
+  - Key: perk_info_shield
+    Value: "This is Shield perk!\r"
   - Key: stat_health
     Value: "Health:\r"
   - Key: stat_speed
