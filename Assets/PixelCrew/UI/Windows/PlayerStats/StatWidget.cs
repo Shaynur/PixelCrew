@@ -5,6 +5,7 @@ using Assets.PixelCrew.Model.Definitions;
 using Assets.PixelCrew.Model.Definitions.Localization;
 using Assets.PixelCrew.Model.Definitions.Player;
 using Assets.PixelCrew.UI.Widgets;
+using Assets.PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,7 +38,7 @@ namespace Assets.PixelCrew.UI.Windows.PlayerStats {
             var statsModel = _session.StatsModel;
 
             _icon.sprite = _data.Icon;
-            _name.text = LocalizationManager.I.Localize(_data.Name);
+            _name.text = _data.Name.Localize();
             var currentLevelValue = statsModel.GetValue(_data.Id);
             _currentValue.text = currentLevelValue.ToString(CultureInfo.InvariantCulture);
 
@@ -48,7 +49,7 @@ namespace Assets.PixelCrew.UI.Windows.PlayerStats {
             _incraseValue.text = $"+{incraseValue}";
             _incraseValue.gameObject.SetActive(incraseValue > 0);
 
-            var maxLevel = DefsFacade.I.Player.GetStat(_data.Id).Levels.Length -1;
+            var maxLevel = DefsFacade.I.Player.GetStat(_data.Id).Levels.Length - 1;
             _progress.SetProgress(currentLevel / (float)maxLevel);
 
             _selector.SetActive(statsModel.InterfaceSelectedStat.Value == _data.Id);

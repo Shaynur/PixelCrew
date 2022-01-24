@@ -1,4 +1,5 @@
 ﻿using Assets.PixelCrew.Model;
+using Assets.PixelCrew.UI.LevelsLoader;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +13,8 @@ namespace Assets.PixelCrew.Components.LevelManagment
             session.LoadPlayerData();
 
             var scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            var loader = FindObjectOfType<LevelLoader>();
+            loader.LoadLevel(scene.name);
         }
     }
 }

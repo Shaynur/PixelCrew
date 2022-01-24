@@ -1,4 +1,5 @@
 ﻿using Assets.PixelCrew.Model.Definitions.Localization;
+using Assets.PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +19,7 @@ namespace Assets.PixelCrew.UI.Localozation {
         }
 
         protected override void Localize() {
-            var localized = LocalizationManager.I.Localize(_key);
+            var localized = _key.Localize();
             _text.text = _capitalize ? localized.ToUpper() : localized;
         }
     }

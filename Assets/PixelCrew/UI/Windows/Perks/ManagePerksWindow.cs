@@ -3,6 +3,7 @@ using Assets.PixelCrew.Model.Definitions;
 using Assets.PixelCrew.Model.Definitions.Localization;
 using Assets.PixelCrew.Model.Definitions.Repository;
 using Assets.PixelCrew.UI.Widgets;
+using Assets.PixelCrew.Utils;
 using Assets.PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,7 +47,7 @@ namespace Assets.PixelCrew.UI.Windows.Perks {
             var def = DefsFacade.I.Perks.Get(selected);
             _price.SetData(def.Price);
 
-            _infoText.text = LocalizationManager.I.Localize(def.Info);
+            _infoText.text = def.Info.Localize();
         }
 
         private void OnUse() {

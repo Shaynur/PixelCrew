@@ -3,6 +3,8 @@ using Assets.PixelCrew.Components;
 using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Components.GoBase;
 using Assets.PixelCrew.Components.Health;
+using Assets.PixelCrew.Effects;
+using Assets.PixelCrew.Effects.CameraRelated;
 using Assets.PixelCrew.Model;
 using Assets.PixelCrew.Model.Data;
 using Assets.PixelCrew.Model.Definitions;
@@ -32,6 +34,7 @@ namespace Assets.PixelCrew.Creatures.Hero {
         private bool _isOnWall;
         private GameSession _session;
         private HealthComponent _health;
+        private CameraShakeEffect _cameraShake;
         private float _defaultGravityScale;
         private static readonly int ThrowKey = Animator.StringToHash("throw");
 
@@ -57,6 +60,7 @@ namespace Assets.PixelCrew.Creatures.Hero {
         private void Start() {
             _session = FindObjectOfType<GameSession>();
             _health = GetComponent<HealthComponent>();
+            _cameraShake = FindObjectOfType<CameraShakeEffect>();
 
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
             _session.StatsModel.OnUpgraded += OnHeroUpgraded;
@@ -156,6 +160,7 @@ namespace Assets.PixelCrew.Creatures.Hero {
 
         public override void TakeDamage() {
             base.TakeDamage();
+            _cameraShake?.Shake();
             if (CoinsCount > 0) {
                 SpawnCoins();
             }
