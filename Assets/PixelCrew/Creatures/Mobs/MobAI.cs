@@ -1,11 +1,11 @@
-﻿//using System;
-using System.Collections;
+﻿using System.Collections;
 using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Components.GoBase;
 using Assets.PixelCrew.Creatures.Mobs.Patrolling;
 using UnityEngine;
 
 namespace Assets.PixelCrew.Creatures.Mobs {
+
     public class MobAI : MonoBehaviour {
 
         [SerializeField] private LayerCheck _vision;

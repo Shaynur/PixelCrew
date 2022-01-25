@@ -10,7 +10,7 @@ namespace Assets.PixelCrew.Components {
         [SerializeField] private Cooldown _cooldown;
 
         public void Use() {
-            _health.Immune = true;
+            _health.Immune.Retain(this);
             _cooldown.Reset();
             gameObject.SetActive(true);
         }
@@ -21,7 +21,7 @@ namespace Assets.PixelCrew.Components {
         }
 
         private void OnDisable() {
-            _health.Immune = false;
+            _health.Immune.Release(this);
         }
     }
 }

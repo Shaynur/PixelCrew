@@ -13,15 +13,15 @@ namespace Assets.PixelCrew.Creatures.Weapons
         protected override void Start()
         {
             base.Start();
-            _originalY = Rigibbody.position.y;
+            _originalY = Rigidbody.position.y;
         }
 
         private void FixedUpdate()
         {
-            var position = Rigibbody.position;
+            var position = Rigidbody.position;
             position.x += Direction * _speed;
             position.y = _originalY + Mathf.Sin(_time * _frequency) * _amplitude;
-            Rigibbody.MovePosition(position);
+            Rigidbody.MovePosition(position);
             _time += Time.fixedDeltaTime;
         }
     }

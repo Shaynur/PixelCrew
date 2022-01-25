@@ -37,7 +37,7 @@ PrefabInstance:
     - target: {fileID: 6789406172182787816, guid: 9d6fc537f98a0b44192fdfb5c792c101,
         type: 3}
       propertyPath: _sceneName
-      value: Level1
+      value: Level3
       objectReference: {fileID: 0}
     - target: {fileID: 6789406172182787823, guid: 9d6fc537f98a0b44192fdfb5c792c101,
         type: 3}
@@ -97,7 +97,7 @@ PrefabInstance:
     - target: {fileID: 6789406172182787826, guid: 9d6fc537f98a0b44192fdfb5c792c101,
         type: 3}
       propertyPath: m_Name
-      value: WoodDoor(Exit) KeyVariant
+      value: WoodDoor(Exit)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d6fc537f98a0b44192fdfb5c792c101, type: 3}

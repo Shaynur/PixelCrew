@@ -8,7 +8,7 @@ namespace Assets.PixelCrew.Creatures.Weapons
         {
             base.Start();
             var force = new Vector2(Direction * _speed, 0);
-            Rigibbody.AddForce(force, ForceMode2D.Impulse);
+            Rigidbody.AddForce(force, ForceMode2D.Impulse);
         }
     }
 }

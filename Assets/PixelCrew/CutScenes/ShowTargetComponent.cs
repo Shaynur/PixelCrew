@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.PixelCrew.CutScenes {
 
     public class ShowTargetComponent : MonoBehaviour {
+
         [SerializeField] private Transform _target;
         [SerializeField] private CameraStateController _controller;
         [SerializeField] private float _delay = 0.5f;
+        [SerializeField] private UnityEvent _onDelay;
 
         private void OnValidate() {
             if (_controller == null) {
@@ -25,6 +28,7 @@ namespace Assets.PixelCrew.CutScenes {
 
         private void MoveBack() {
             _controller.SetState(false);
+            _onDelay?.Invoke();
         }
     }
 }
