@@ -1,17 +1,16 @@
 ﻿using System;
 
-namespace Assets.PixelCrew.Utils.Disposables
-{
-    public class ActionDisposable : IDisposable
-    {
+namespace Assets.PixelCrew.Utils.Disposables {
+
+    public class ActionDisposable : IDisposable {
+
         private Action _onDispose;
-        public ActionDisposable(Action onDispose)
-        {
+
+        public ActionDisposable(Action onDispose) {
             _onDispose = onDispose;
         }
 
-        public void Dispose()
-        {
+        public void Dispose() {
             _onDispose?.Invoke();
             _onDispose = null;
         }

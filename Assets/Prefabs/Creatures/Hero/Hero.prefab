@@ -457,6 +457,7 @@ GameObject:
   - component: {fileID: 3909059877644048765}
   - component: {fileID: 3909059877644048764}
   - component: {fileID: 3909059877644048767}
+  - component: {fileID: 3490671219693781097}
   m_Layer: 0
   m_Name: Candle
   m_TagString: Untagged
@@ -556,6 +557,20 @@ MonoBehaviour:
     _onComplete:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &3490671219693781097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3909059877644048766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe36536f9c40d647a3ada173e02ee40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _consumerPerSecond: 5
+  _light: {fileID: 3909059876411630383}
 --- !u!1 &7213589909033612230
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,6 +752,7 @@ MonoBehaviour:
   _hitParticles: {fileID: 7213589910798643609}
   _throwSpawner: {fileID: 2123718644768500713}
   _shield: {fileID: 49186457349481646}
+  _flashlight: {fileID: 3490671219693781097}
 --- !u!114 &7213589909166006182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -866,6 +882,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2e30a69f-2bcb-46bb-996b-eedcb9de6777
     m_ActionName: Hero/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7213589909166006182}
+        m_MethodName: OnToggleFlashlight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4893179c-4eec-49ff-aa7a-fe825820db90
+    m_ActionName: Hero/UseFlashlight[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -1258,7 +1289,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hpDelta: -1
-  _timeout: 0
 --- !u!1 &7213589910706805809
 GameObject:
   m_ObjectHideFlags: 0

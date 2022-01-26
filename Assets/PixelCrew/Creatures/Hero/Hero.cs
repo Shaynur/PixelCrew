@@ -3,6 +3,7 @@ using Assets.PixelCrew.Components;
 using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Components.GoBase;
 using Assets.PixelCrew.Components.Health;
+using Assets.PixelCrew.Creatures.Hero.Features;
 using Assets.PixelCrew.Effects;
 using Assets.PixelCrew.Effects.CameraRelated;
 using Assets.PixelCrew.Model;
@@ -28,6 +29,7 @@ namespace Assets.PixelCrew.Creatures.Hero {
         [SerializeField] private ParticleSystem _hitParticles;
         [SerializeField] private SpawnComponent _throwSpawner;
         [SerializeField] private ShieldComponent _shield;
+        [SerializeField] private HeroFlashlight _flashlight;
 
 
         private bool _allowDoubleJump;
@@ -288,6 +290,11 @@ namespace Assets.PixelCrew.Creatures.Hero {
                 _shield.Use();
                 _session.PerksModel.Cooldown.Reset();
             }
+        }
+
+        public void ToggleFlashLight() {
+            var isActive = _flashlight.gameObject.activeSelf;
+            _flashlight.gameObject.SetActive(!isActive);
         }
 
         private void OnDestroy() {

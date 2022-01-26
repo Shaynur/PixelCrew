@@ -2,7 +2,9 @@
 using UnityEngine.InputSystem;
 
 namespace Assets.PixelCrew.Creatures.Hero {
+
     public class HeroInputReader : MonoBehaviour {
+
         [SerializeField] private Hero _hero;
 
         public void OnMovement(InputAction.CallbackContext context) {
@@ -41,5 +43,12 @@ namespace Assets.PixelCrew.Creatures.Hero {
                 _hero.UsePerk();
             }
         }
+
+        public void OnToggleFlashlight(InputAction.CallbackContext context) {
+            if (context.canceled) {
+                _hero.ToggleFlashLight();
+            }
+        }
+
     }
 }
