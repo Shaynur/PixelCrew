@@ -1218,7 +1218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243663771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -51.573273, y: 5.96627, z: -10}
+  m_LocalPosition: {x: -50.325195, y: 5.9684725, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 812873184}
@@ -5683,6 +5683,7 @@ MonoBehaviour:
   _target: {fileID: 6969182030447646501}
   _prefab: {fileID: 7213589909166006200, guid: 521ad1679ef408041b659b65a481fc19, type: 3}
   _spawnOnParent: 0
+  _usePool: 0
 --- !u!1 &656055222
 GameObject:
   m_ObjectHideFlags: 0
@@ -8901,6 +8902,8 @@ MonoBehaviour:
         Value: 20
     Hp:
       _value: 10
+    Fuel:
+      _value: 0
     Perks:
       _used:
         _value: 
@@ -9082,8 +9085,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553605860}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.619205, y: 5.4486165, z: 0}
-  m_LocalScale: {x: 10, y: 6, z: 1}
+  m_LocalPosition: {x: 31.9, y: 5.4486165, z: 0}
+  m_LocalScale: {x: 8, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 2086631191}
   m_RootOrder: 3

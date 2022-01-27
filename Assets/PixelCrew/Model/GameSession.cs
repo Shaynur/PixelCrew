@@ -15,6 +15,7 @@ namespace Assets.PixelCrew.Model {
         [SerializeField] private PlayerData _data;
         [SerializeField] private string _defaultCheckpoint;
 
+        public static  GameSession Instance { get; private set; }
         public PlayerData Data => _data;
         public QuickInventoryModel QuickInventory { get; private set; }
         public PerksModel PerksModel { get; private set; }
@@ -25,7 +26,9 @@ namespace Assets.PixelCrew.Model {
         private readonly List<string> _checkpoints = new List<string>();
 
         private void Awake() {
+
             var existSession = GetExistSession();
+
             if (existSession != null) {
                 existSession.StartSession(_defaultCheckpoint);
                 Destroy(gameObject);
@@ -34,6 +37,7 @@ namespace Assets.PixelCrew.Model {
                 SavePlayerData(); // ??
                 InitModels();
                 DontDestroyOnLoad(this);
+                Instance = this;
                 StartSession(_defaultCheckpoint);
             }
         }
@@ -104,10 +108,6 @@ namespace Assets.PixelCrew.Model {
             return null;
         }
 
-        private void OnDestroy() {
-            _trash.Dispose();
-        }
-
         private readonly List<string> _removedItems = new List<string>();
 
         public bool RestoreState(string itemId) {
@@ -117,6 +117,12 @@ namespace Assets.PixelCrew.Model {
         public void StoreState(string itemId) {
             if (!_removedItems.Contains(itemId))
                 _removedItems.Add(itemId);
+        }
+
+        private void OnDestroy() {
+            if(Instance == this)
+                Instance = null;
+            _trash.Dispose();
         }
     }
 }

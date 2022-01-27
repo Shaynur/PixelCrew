@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8103499271865039068}
   - component: {fileID: 8103499271865039070}
   - component: {fileID: 8103499271865039069}
-  - component: {fileID: 8108317119077978775}
+  - component: {fileID: 2390006971939978586}
   m_Layer: 0
   m_Name: FootStepsParticle
   m_TagString: Untagged
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1389601157
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 79e80c56cfb98184ba07f3607fac6ede, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -109,8 +109,8 @@ MonoBehaviour:
     _onComplete:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8108317119077978775}
-          m_MethodName: DestroyObject
+        - m_Target: {fileID: 2390006971939978586}
+          m_MethodName: Release
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &8108317119077978775
+--- !u!114 &2390006971939978586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,8 +129,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 8103499271865039139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b29d49c8910b54ab2d521f984cb6f3, type: 3}
+  m_Script: {fileID: 11500000, guid: a30701eba731ca14b91a57e3c5edcb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectToDestroy: {fileID: 8103499271865039139}
-  _saveInDestroyedList: 0
+  _onRestart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8103499271865039069}
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: foot
+          m_BoolArgument: 0
+        m_CallState: 2

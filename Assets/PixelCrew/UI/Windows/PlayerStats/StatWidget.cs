@@ -24,7 +24,7 @@ namespace Assets.PixelCrew.UI.Windows.PlayerStats {
         private StatDef _data;
 
         private void Start() {
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             UpdateView();
         }
 

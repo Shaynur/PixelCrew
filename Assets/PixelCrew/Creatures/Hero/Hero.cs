@@ -4,7 +4,6 @@ using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Components.GoBase;
 using Assets.PixelCrew.Components.Health;
 using Assets.PixelCrew.Creatures.Hero.Features;
-using Assets.PixelCrew.Effects;
 using Assets.PixelCrew.Effects.CameraRelated;
 using Assets.PixelCrew.Model;
 using Assets.PixelCrew.Model.Data;
@@ -13,7 +12,6 @@ using Assets.PixelCrew.Model.Definitions.Player;
 using Assets.PixelCrew.Model.Definitions.Repository;
 using Assets.PixelCrew.Model.Definitions.Repository.Items;
 using Assets.PixelCrew.Utils;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Assets.PixelCrew.Creatures.Hero {
@@ -24,26 +22,25 @@ namespace Assets.PixelCrew.Creatures.Hero {
         [SerializeField] private LayerCheck _wallCheck;
 
         [SerializeField] private Cooldown _throwCooldown;
-        [SerializeField] private AnimatorController _armed;
-        [SerializeField] private AnimatorController _disarmed;
+        [SerializeField] private RuntimeAnimatorController _armed;
+        [SerializeField] private RuntimeAnimatorController _disarmed;
         [SerializeField] private ParticleSystem _hitParticles;
         [SerializeField] private SpawnComponent _throwSpawner;
         [SerializeField] private ShieldComponent _shield;
         [SerializeField] private HeroFlashlight _flashlight;
 
-
+        private GameSession _session;
         private bool _allowDoubleJump;
         private bool _isOnWall;
-        private GameSession _session;
         private HealthComponent _health;
         private CameraShakeEffect _cameraShake;
         private float _defaultGravityScale;
         private static readonly int ThrowKey = Animator.StringToHash("throw");
 
         private const string SwordId = "Sword";
-        private int CoinsCount => _session.Data.Inventory.Count("Coins");
-        private int SwordCount => _session.Data.Inventory.Count(SwordId);
-        private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
+        private int CoinsCount => GameSession.Instance.Data.Inventory.Count("Coins");
+        private int SwordCount => GameSession.Instance.Data.Inventory.Count(SwordId);
+        private string SelectedItemId => GameSession.Instance.QuickInventory.SelectedItem.Id;
         private bool CanThrow {
             get {
                 if (SelectedItemId == SwordId) {
@@ -60,7 +57,7 @@ namespace Assets.PixelCrew.Creatures.Hero {
         }
 
         private void Start() {
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             _health = GetComponent<HealthComponent>();
             _cameraShake = FindObjectOfType<CameraShakeEffect>();
 

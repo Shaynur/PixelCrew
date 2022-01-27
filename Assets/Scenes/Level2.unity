@@ -2779,6 +2779,7 @@ MonoBehaviour:
   _target: {fileID: 671767778}
   _prefab: {fileID: 7213589909166006200, guid: 521ad1679ef408041b659b65a481fc19, type: 3}
   _spawnOnParent: 0
+  _usePool: 0
 --- !u!1001 &701058294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7863,6 +7864,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406691697143259718, guid: 6757a15f63399a049a0c6c1793f4eb4b,
+        type: 3}
+      propertyPath: _sceneName
+      value: Level3(Boss)
       objectReference: {fileID: 0}
     - target: {fileID: 1406691697143259740, guid: 6757a15f63399a049a0c6c1793f4eb4b,
         type: 3}

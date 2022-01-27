@@ -1,30 +1,33 @@
-﻿using System;
-using Assets.PixelCrew.Utils;
+﻿using Assets.PixelCrew.Utils;
+using Assets.PixelCrew.Utils.ObjectPool;
 using UnityEngine;
 
-namespace Assets.PixelCrew.Components.GoBase
-{
-    public class SpawnComponent : MonoBehaviour
-    {
+namespace Assets.PixelCrew.Components.GoBase {
+
+    public class SpawnComponent : MonoBehaviour {
+
         [SerializeField] private Transform _target;
         [SerializeField] private GameObject _prefab;
         [SerializeField] private bool _spawnOnParent;
+        [SerializeField] private bool _usePool;
 
         [ContextMenu("Spawn")]
-        public void Spawn()
-        {
+        public void Spawn() {
             SpawnInstance();
         }
 
         public GameObject SpawnInstance() {
+
             GameObject instantiate;
-            if (_spawnOnParent)
-            {
-                instantiate = Instantiate(_prefab, _target.position, Quaternion.identity, transform);
+            var targetPosition = _target.position;
+
+            if (_spawnOnParent) {
+                instantiate = Instantiate(_prefab, targetPosition, Quaternion.identity, transform);
             }
-            else
-            {
-                instantiate = SpawnUtils.Spawn(_prefab, _target.position);
+            else {
+                instantiate = _usePool ?
+                    Pool.Instance.Get(_prefab, targetPosition)
+                    : SpawnUtils.Spawn(_prefab, targetPosition);
             }
             instantiate.transform.localScale = _target.lossyScale;
             instantiate.SetActive(true);

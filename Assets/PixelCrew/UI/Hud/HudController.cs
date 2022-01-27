@@ -16,7 +16,7 @@ namespace Assets.PixelCrew.UI.Hud {
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         private void Start() {
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             _trash.Retain(_session.Data.Hp.SubscribeAndInvoke(OnHealthChanged));
             //OnHealthChanged(_session.Data.Hp.Value, 0);
             _trash.Retain(_session.PerksModel.Subscribe(OnPerkChanged));

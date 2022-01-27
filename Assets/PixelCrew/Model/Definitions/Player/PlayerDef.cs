@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.PixelCrew.Model.Definitions.Player {
 
@@ -13,6 +12,13 @@ namespace Assets.PixelCrew.Model.Definitions.Player {
         public int InventorySize => _inventorySize;
         public StatDef[] Stats => _stats;
 
-        public StatDef GetStat(StatId id) => _stats.FirstOrDefault(x => x.Id == id);
+        public StatDef GetStat(StatId id) {
+
+            foreach (var statDef in _stats) { 
+                if(statDef.Id == id)
+                    return statDef;
+            }
+            return default;
+        }
     }
 }

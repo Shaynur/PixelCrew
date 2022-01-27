@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: e6b438711ecd58746bdd31a2e9d82e8a, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f60c4ad0a1b5784408f4d85dece224b4, type: 3}
+  - {fileID: 21300000, guid: 03625651addcbbd40bf0090359915eb9, type: 3}
+  - {fileID: 21300000, guid: c5ac485170a48e54c99f079b25d98496, type: 3}
+  - {fileID: 21300000, guid: 0cd89891239c8b447a485d6868253da3, type: 3}
+  - {fileID: 21300000, guid: bd581da132d463f4da6a90f3f5f356be, type: 3}
+  - {fileID: 21300000, guid: dde1e773067ef4a46b137f9095896f12, type: 3}
+  - {fileID: 21300000, guid: a761969346034084fb57600910decb16, type: 3}
+  - {fileID: 21300000, guid: 56f976f32e06d7a4f9dc9ab976e7503b, type: 3}
+  - {fileID: 21300000, guid: 912d08e4abf98d844adab89cf3b62f4e, type: 3}
+  - {fileID: 21300000, guid: ac7957156da81d54083debbd9c4bc8de, type: 3}
+  - {fileID: 21300000, guid: 272d7075ef0f09e47980bf4657b3aec7, type: 3}
+  - {fileID: 21300000, guid: 3fdaea36df1245e42a84520f226eb63a, type: 3}
+  - {fileID: 21300000, guid: 70e36a56e0d563948b9055e4af9b27b9, type: 3}
+  - {fileID: 21300000, guid: ef05af76e97d1564e907473d0a5a5161, type: 3}
+  - {fileID: 21300000, guid: 48f07186964e94d4bad38fa0726e3402, type: 3}
+  - {fileID: 21300000, guid: 40f4a737d67bfb44e9d241812896c4e1, type: 3}
+  - {fileID: 21300000, guid: 60458c47ab900ee41ad70827baf59af0, type: 3}
+  - {fileID: 21300000, guid: 1fdf5ce74fa6e8746bcbb136ca14041e, type: 3}
+  - {fileID: 21300000, guid: 45c8bb18809ba6541ba043923c588924, type: 3}
+  - {fileID: 21300000, guid: 2952bd5849aa8b04a84e4ee31420b326, type: 3}
+  - {fileID: 21300000, guid: 50506f68a56884c40843154aca10c21b, type: 3}
+  - {fileID: 21300000, guid: f7c98da8562fa094da34147feeef5d02, type: 3}
+  - {fileID: 21300000, guid: 8ee369c8436c3e2429248410745cab95, type: 3}
+  - {fileID: 21300000, guid: 24541039c57e1074184ba7aaeffc187f, type: 3}
+  - {fileID: 21300000, guid: 06b06b39bf8b3c043a8d3af2eedd0157, type: 3}
+  - {fileID: 21300000, guid: 49970989c10297f4b8e71790cb059cc7, type: 3}
+  - {fileID: 21300000, guid: 989e6d2a1e5450e48aedebbe0770402f, type: 3}
+  - {fileID: 21300000, guid: e6a5a94a2b644b246adcb6892d9937b8, type: 3}
+  - {fileID: 21300000, guid: a3d81a5a75fdb654c93e8cb4019f46f7, type: 3}
+  - {fileID: 21300000, guid: d61b0f6a6f395dd44a7443e392f21201, type: 3}
+  - {fileID: 21300000, guid: 87ce0caa92a9f1548bd389211ff711ba, type: 3}
+  - {fileID: 21300000, guid: 033449ab7983e374f81b406604ea19e6, type: 3}
+  - {fileID: 21300000, guid: 0f431dcb0c558ec4683b7cb278914b69, type: 3}
+  - {fileID: 21300000, guid: cbbe97dbb748eb5418d5113609a6bb8f, type: 3}
+  - {fileID: 21300000, guid: 463599eb0a049ac449a5843f565e1fdc, type: 3}
+  - {fileID: 21300000, guid: 294a93fb669f0834db45343aca92c0d3, type: 3}
+  - {fileID: 21300000, guid: 9479683cc0fbc96469c26fd93eeee34c, type: 3}
+  - {fileID: 21300000, guid: 4fb18e4cda54acf4eb474991c8713867, type: 3}
+  - {fileID: 21300000, guid: 4cb1c96c649ffdf4790ef1996281d4c1, type: 3}
+  - {fileID: 21300000, guid: db40157c17bffa54eb17690b9f007e5d, type: 3}
+  - {fileID: 21300000, guid: 4a5d7ebcaa56dcb46bd0878b40fc62bb, type: 3}
+  - {fileID: 21300000, guid: cff67f3dc8d526b42a89922a37b30673, type: 3}
+  - {fileID: 21300000, guid: 27a7b59d0c92db44b83700c44d32e9fd, type: 3}
+  - {fileID: 21300000, guid: 9f94c99df92a2e6478a9e2cfb1948bdc, type: 3}
+  - {fileID: 21300000, guid: d8d963ad2cd95db4ca0291bda3b9e8fd, type: 3}
+  - {fileID: 21300000, guid: ec1511dde46b2ee4da785166648c2fed, type: 3}
+  - {fileID: 21300000, guid: 6871b1ddc67d74e409743a09bb0d0691, type: 3}
+  - {fileID: 21300000, guid: e4fcca3e2a714a744a7a8b03228e456b, type: 3}
+  - {fileID: 5085415284296604745, guid: 81d9184e8bb6ea04798f355abc404743, type: 3}
+  - {fileID: 2389193319765324094, guid: 81d9184e8bb6ea04798f355abc404743, type: 3}
+  - {fileID: -4135836072091612975, guid: 81d9184e8bb6ea04798f355abc404743, type: 3}
+  - {fileID: 1691966074973790518, guid: 81d9184e8bb6ea04798f355abc404743, type: 3}
+  - {fileID: 21300000, guid: a85fd97e9a41bff429ab3ff996a5be21, type: 3}
+  - {fileID: 21300000, guid: 535d20fe48a35874fbf7f7c7ea3cbd2a, type: 3}
+  - {fileID: 21300000, guid: a44cd0fe6b17b854d97444feed3807ab, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Square
+  - Check_Mark
+  - green-button
+  - inventory-tall
+  - S_Buff04
+  - geen-box-small
+  - slider-horizontal
+  - common-button-pressed
+  - S_Holy03
+  - pirate-face
+  - yellow-box-small
+  - inventory-small
+  - S_Magic08
+  - I_Clock
+  - dowble-jump
+  - common-button-selected
+  - inventory-large
+  - close
+  - patric-face
+  - papper
+  - green-box-widel
+  - inventory-wide
+  - sword-super-throw
+  - sharky-face
+  - green-box-tall
+  - yellow-box-tall
+  - menu
+  - I_Clover
+  - common-button-disabled
+  - yellow-box-wide
+  - common-button
+  - S_Bow13
+  - Flag_of_Russia_(2-1).svg
+  - red
+  - slider-horizontal-handle
+  - item-selection-common
+  - green
+  - yellow-box-large
+  - force-shiled
+  - yellow-panel
+  - item-small
+  - item-selection
+  - crabbu-face
+  - yellow
+  - 750px-Flag_of_Spain.svg
+  - blue
+  - green-box-large
+  - SmallBar
+  - shield_1
+  - shield_0
+  - shield_3
+  - shield_2
+  - 800px-Flag_of_the_United_States.svg
+  - enemy-big
+  - hp-big
+  m_Tag: UI
+  m_IsVariant: 0

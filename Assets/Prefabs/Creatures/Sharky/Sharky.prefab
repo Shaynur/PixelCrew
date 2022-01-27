@@ -110,6 +110,7 @@ MonoBehaviour:
   _target: {fileID: 3460073538572742892}
   _prefab: {fileID: 8103499271865039139, guid: 0010eb2ff58a72146acb27c08819ff50, type: 3}
   _spawnOnParent: 1
+  _usePool: 0
 --- !u!1 &326606388079087845
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +157,7 @@ MonoBehaviour:
   _target: {fileID: 2414285858310957301}
   _prefab: {fileID: 8103499271865039139, guid: d4f726e1270f68e41b36fb7e462078fa, type: 3}
   _spawnOnParent: 1
+  _usePool: 0
 --- !u!1 &1584774239619466251
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +586,7 @@ MonoBehaviour:
   _target: {fileID: 7213589909033612225}
   _prefab: {fileID: 8103499271865039139, guid: 20c1cba8bc873ca4eae3873b938f4fd0, type: 3}
   _spawnOnParent: 0
+  _usePool: 0
 --- !u!1 &7213589909166006200
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +720,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 2
-  _immune: 0
   _onHeal:
     m_PersistentCalls:
       m_Calls: []
@@ -968,7 +970,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hpDelta: -1
-  _timeout: 0
 --- !u!58 &8248824057517332159
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1047,3 +1048,4 @@ MonoBehaviour:
   _target: {fileID: 7213589910706805808}
   _prefab: {fileID: 8103499271865039139, guid: b264edf258ff0e647914de9fd1098f26, type: 3}
   _spawnOnParent: 0
+  _usePool: 1

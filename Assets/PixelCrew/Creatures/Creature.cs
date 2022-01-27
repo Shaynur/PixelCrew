@@ -2,6 +2,7 @@
 using Assets.PixelCrew.Components.ColliderBased;
 using Assets.PixelCrew.Components.GoBase;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace Assets.PixelCrew.Creatures {
     public class Creature : MonoBehaviour {

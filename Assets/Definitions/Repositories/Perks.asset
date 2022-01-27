@@ -19,7 +19,7 @@ MonoBehaviour:
     _price:
       _itemId: GreenGem
       _count: 2
-    _cooldown: 5
+    _cooldown: 0.5
   - _id: super-throw
     _icon: {fileID: 21300000, guid: 8ee369c8436c3e2429248410745cab95, type: 3}
     _info: perk_info_throw

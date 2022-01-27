@@ -14,18 +14,16 @@ namespace Assets.PixelCrew.Components.LevelManagment {
         [SerializeField] private UnityEvent _setUnchecked;
 
         public string Id => _id;
-        private GameSession _session;
 
         private void Start() {
-            _session = FindObjectOfType<GameSession>();
-            if (_session.IsChecked(_id))
+            if (GameSession.Instance.IsChecked(_id))
                 _setChecked?.Invoke();
             else
                 _setUnchecked?.Invoke();
         }
 
         public void Check() {
-            _session.SetChecked(_id);
+            GameSession.Instance.SetChecked(_id);
             _setChecked?.Invoke();
         }
 

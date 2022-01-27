@@ -25,7 +25,7 @@ namespace Assets.PixelCrew.UI.Windows.Perks {
         protected override void Start() {
             base.Start();
             _dataGroup = new PredefinedDataGroup<PerkDef, PerkWidget>(_container);
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
 
             _trash.Retain(_session.PerksModel.Subscribe(OnPerksChanged));
             _trash.Retain(_buyButton.onClick.Subscribe(OnBuy));

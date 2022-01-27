@@ -18,7 +18,7 @@ namespace Assets.PixelCrew.UI.Windows.Perks {
         private PerkDef _data;
 
         private void Start() {
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             UpdateView();
         }
 
