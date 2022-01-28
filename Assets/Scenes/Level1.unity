@@ -1218,7 +1218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243663771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50.325195, y: 5.9684725, z: -10}
+  m_LocalPosition: {x: -51.572845, y: 5.966271, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 812873184}
@@ -8188,6 +8188,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1170713318}
     m_Modifications:
+    - target: {fileID: 4915569157589590652, guid: 3231a8075b971ed4c82ab319feeee906,
+        type: 3}
+      propertyPath: _state
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6492978361999404133, guid: 3231a8075b971ed4c82ab319feeee906,
         type: 3}
       propertyPath: m_Name
@@ -8889,13 +8894,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b4ada930efb3c40b8017ab3825d224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelIndex: 1
   _data:
     _inventory:
       _inventory:
-      - Id: Coin
-        Value: 1000
-      - Id: Sword
-        Value: 10
       - Id: SpeedUpPotion
         Value: 20
       - Id: GreenGem
@@ -8908,7 +8910,7 @@ MonoBehaviour:
       _used:
         _value: 
       _unlocked: []
-  _defaultCheckpoint: level1-checkpoint3
+  _defaultCheckpoint: level1-startPoint
 --- !u!4 &1430526775
 Transform:
   m_ObjectHideFlags: 0
@@ -8930,6 +8932,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1170713318}
     m_Modifications:
+    - target: {fileID: 4915569157589590652, guid: 3231a8075b971ed4c82ab319feeee906,
+        type: 3}
+      propertyPath: _state
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6492978361999404133, guid: 3231a8075b971ed4c82ab319feeee906,
         type: 3}
       propertyPath: m_Name
@@ -11302,6 +11309,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1170713318}
     m_Modifications:
+    - target: {fileID: 4915569157589590652, guid: 3231a8075b971ed4c82ab319feeee906,
+        type: 3}
+      propertyPath: _state
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6492978361999404133, guid: 3231a8075b971ed4c82ab319feeee906,
         type: 3}
       propertyPath: m_Name
@@ -11934,7 +11946,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8141370481336145401}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -49.80393, y: 5.389393, z: 0}
+  m_LocalPosition: {x: -48.38, y: 7.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1170713318}

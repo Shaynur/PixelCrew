@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Assets.PixelCrew.Components.LevelManagment;
 using Assets.PixelCrew.Model.Data;
@@ -6,12 +7,14 @@ using Assets.PixelCrew.Model.Definitions.Player;
 using Assets.PixelCrew.Model.Models;
 using Assets.PixelCrew.Utils.Disposables;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 
 namespace Assets.PixelCrew.Model {
 
     public class GameSession : MonoBehaviour {
 
+        [SerializeField] private int _levelIndex;
         [SerializeField] private PlayerData _data;
         [SerializeField] private string _defaultCheckpoint;
 
@@ -30,7 +33,7 @@ namespace Assets.PixelCrew.Model {
             var existSession = GetExistSession();
 
             if (existSession != null) {
-                existSession.StartSession(_defaultCheckpoint);
+                existSession.StartSession(_defaultCheckpoint, _levelIndex);
                 Destroy(gameObject);
             }
             else {
@@ -38,14 +41,22 @@ namespace Assets.PixelCrew.Model {
                 InitModels();
                 DontDestroyOnLoad(this);
                 Instance = this;
-                StartSession(_defaultCheckpoint);
+                StartSession(_defaultCheckpoint, _levelIndex);
             }
         }
 
-        private void StartSession(string defaultCheckpoint) {
+        private void StartSession(string defaultCheckpoint, int levelIndex) {
             SetChecked(defaultCheckpoint);
-            LoadHud();
+            TrackSessionStart(levelIndex);
+            LoadUIs();
             SpawnHero();
+        }
+
+        private void TrackSessionStart(int levelIndex) {
+            var eventParams = new Dictionary<string, object> {
+                { "level_index", levelIndex }
+            };
+            AnalyticsEvent.Custom("level_start", eventParams);
         }
 
         private void SpawnHero() {
@@ -84,8 +95,14 @@ namespace Assets.PixelCrew.Model {
             _data.Hp.Value = (int)StatsModel.GetValue(StatId.Hp);
         }
 
-        private void LoadHud() {
+        private void LoadUIs() {
             SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
+            LoadOnScreenControls();
+        }
+
+        [Conditional("USE_ONSCREEN_CONTROLS")]
+        private void LoadOnScreenControls() {
+            SceneManager.LoadScene("Controls", LoadSceneMode.Additive);
         }
 
         public void SavePlayerData() {

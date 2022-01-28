@@ -13,6 +13,7 @@ using Assets.PixelCrew.Model.Definitions.Repository;
 using Assets.PixelCrew.Model.Definitions.Repository.Items;
 using Assets.PixelCrew.Utils;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 namespace Assets.PixelCrew.Creatures.Hero {
 
@@ -240,6 +241,7 @@ namespace Assets.PixelCrew.Creatures.Hero {
             bool isThrowableItem = IsSelectedItemHasTag(ItemTag.Throwable);
             bool isHasTrowPerk = _session.PerksModel.IsSuperThrowSupported;
             if (isThrowableItem && isHasTrowPerk) {
+                AnalyticsEvent.Custom("use-super-throw");
                 var throwableCount = _session.Data.Inventory.Count(SelectedItemId);
                 var possibleCount = SelectedItemId == SwordId ? throwableCount - 1 : throwableCount;
                 var numThrows = Mathf.Min(3, possibleCount);

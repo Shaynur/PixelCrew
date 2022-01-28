@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Analytics;
 
 namespace Assets.PixelCrew.UI.Windows {
 
@@ -9,6 +10,7 @@ namespace Assets.PixelCrew.UI.Windows {
         private static readonly int Hide = Animator.StringToHash("Hide");
 
         protected virtual void Start() {
+            AnalyticsEvent.ScreenVisit(gameObject.name);
             _animator = GetComponent<Animator>();
             _animator.SetTrigger(Show);
         }

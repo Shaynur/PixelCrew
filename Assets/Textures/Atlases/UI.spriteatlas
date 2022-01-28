@@ -47,22 +47,29 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: f60c4ad0a1b5784408f4d85dece224b4, type: 3}
+  - {fileID: 21300000, guid: e9874801ff5d5d247964cc15a5320ef0, type: 3}
   - {fileID: 21300000, guid: 03625651addcbbd40bf0090359915eb9, type: 3}
   - {fileID: 21300000, guid: c5ac485170a48e54c99f079b25d98496, type: 3}
   - {fileID: 21300000, guid: 0cd89891239c8b447a485d6868253da3, type: 3}
   - {fileID: 21300000, guid: bd581da132d463f4da6a90f3f5f356be, type: 3}
+  - {fileID: 21300000, guid: 72d64d52731ff334bb56fe70722180a1, type: 3}
   - {fileID: 21300000, guid: dde1e773067ef4a46b137f9095896f12, type: 3}
+  - {fileID: 21300000, guid: 83e252937b5acd743b6cbf42089c4fef, type: 3}
   - {fileID: 21300000, guid: a761969346034084fb57600910decb16, type: 3}
   - {fileID: 21300000, guid: 56f976f32e06d7a4f9dc9ab976e7503b, type: 3}
+  - {fileID: 21300000, guid: 58454cb45707a8c4f973ea2a5efb6595, type: 3}
   - {fileID: 21300000, guid: 912d08e4abf98d844adab89cf3b62f4e, type: 3}
+  - {fileID: 21300000, guid: 886458e4a96197049ba53b1c9dd8bbdf, type: 3}
   - {fileID: 21300000, guid: ac7957156da81d54083debbd9c4bc8de, type: 3}
   - {fileID: 21300000, guid: 272d7075ef0f09e47980bf4657b3aec7, type: 3}
+  - {fileID: 21300000, guid: bf2e1606144089e4d99f2c37ba01ede7, type: 3}
   - {fileID: 21300000, guid: 3fdaea36df1245e42a84520f226eb63a, type: 3}
   - {fileID: 21300000, guid: 70e36a56e0d563948b9055e4af9b27b9, type: 3}
   - {fileID: 21300000, guid: ef05af76e97d1564e907473d0a5a5161, type: 3}
   - {fileID: 21300000, guid: 48f07186964e94d4bad38fa0726e3402, type: 3}
   - {fileID: 21300000, guid: 40f4a737d67bfb44e9d241812896c4e1, type: 3}
   - {fileID: 21300000, guid: 60458c47ab900ee41ad70827baf59af0, type: 3}
+  - {fileID: 21300000, guid: 2c456ae7b4200ac4ab7e70d0e0cbfd7c, type: 3}
   - {fileID: 21300000, guid: 1fdf5ce74fa6e8746bcbb136ca14041e, type: 3}
   - {fileID: 21300000, guid: 45c8bb18809ba6541ba043923c588924, type: 3}
   - {fileID: 21300000, guid: 2952bd5849aa8b04a84e4ee31420b326, type: 3}
@@ -87,6 +94,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 4cb1c96c649ffdf4790ef1996281d4c1, type: 3}
   - {fileID: 21300000, guid: db40157c17bffa54eb17690b9f007e5d, type: 3}
   - {fileID: 21300000, guid: 4a5d7ebcaa56dcb46bd0878b40fc62bb, type: 3}
+  - {fileID: 21300000, guid: 472a23ec2f528114ca54508e15ce5ddc, type: 3}
   - {fileID: 21300000, guid: cff67f3dc8d526b42a89922a37b30673, type: 3}
   - {fileID: 21300000, guid: 27a7b59d0c92db44b83700c44d32e9fd, type: 3}
   - {fileID: 21300000, guid: 9f94c99df92a2e6478a9e2cfb1948bdc, type: 3}
@@ -103,22 +111,29 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a44cd0fe6b17b854d97444feed3807ab, type: 3}
   m_PackedSpriteNamesToIndex:
   - Square
+  - 7
   - Check_Mark
   - green-button
   - inventory-tall
   - S_Buff04
+  - 8
   - geen-box-small
+  - 4
   - slider-horizontal
   - common-button-pressed
+  - 6
   - S_Holy03
+  - 1
   - pirate-face
   - yellow-box-small
+  - 2
   - inventory-small
   - S_Magic08
   - I_Clock
   - dowble-jump
   - common-button-selected
   - inventory-large
+  - 5
   - close
   - patric-face
   - papper
@@ -143,6 +158,7 @@ SpriteAtlas:
   - force-shiled
   - yellow-panel
   - item-small
+  - 3
   - item-selection
   - crabbu-face
   - yellow

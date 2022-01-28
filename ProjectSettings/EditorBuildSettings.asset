@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3(Boss).unity
     guid: 9c33d13cf40a3984ea2ff87d6bbf0530
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: 52b6f5409d6933e42aa49c1a0b43b12a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 728a97ad0ff03cc438e76fe650f7d3d6,
       type: 2}
